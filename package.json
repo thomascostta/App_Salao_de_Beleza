@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090 && react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090 && react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -15,6 +15,9 @@
     "moment": "^2.29.1",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-eject": "^0.1.2",
+    "react-native-paper": "^4.11.2",
+    "react-native-vector-icons": "^9.1.0",
     "react-redux": "^7.2.6",
     "reactotron-react-native": "^5.0.1",
     "reactotron-redux": "^3.1.3",
