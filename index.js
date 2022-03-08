@@ -1,7 +1,4 @@
-/**
- * @format
- */
-
+import React from 'react';
 import {AppRegistry} from 'react-native';
 import Home from './src/pages/Home';
 import {name as appName} from './app.json';
