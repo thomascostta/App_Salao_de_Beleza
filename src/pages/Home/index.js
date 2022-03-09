@@ -1,9 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { FlatList } from 'react-native';
+import Header from '../Header';
 
-
- const Home = () => {
-    return <Text>Home</Text>
+const Home = () => {
+    return (
+        <FlatList
+            ListEmptyComponent={Header}
+            data={[]}
+        />
+    )
 }
 
 export default Home;
