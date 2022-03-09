@@ -1,7 +1,7 @@
 import React from 'react';
-import {AppRegistry} from 'react-native';
+import { AppRegistry } from 'react-native';
 import Home from './src/pages/Home';
-import {name as appName} from './app.json';
+import { name as appName } from './app.json';
 
 import { configureFonts, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
@@ -12,7 +12,7 @@ const theme = {
     ...DefaultTheme,
     fonts: configureFonts({
         ios: fonts,
-        android: fonts ,
+        android: fonts,
     })
 }
 
