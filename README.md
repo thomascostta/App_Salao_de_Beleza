@@ -24,7 +24,7 @@ O App será para agendamento por horário no salão de beleza, podendo escolher 
 
 
 ## 🛠 Instalando o Projeto
-Para instalar o App_Salao_de_Beleza, siga estas etapas:
+Para instalar o App_Barber_Shop, siga estas etapas:
 
 #### Metro
 After cloning the repo, install the dependencies locally with `yarn` or `npm i`
