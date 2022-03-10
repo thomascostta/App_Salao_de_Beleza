@@ -1,4 +1,4 @@
-# App_Salao_de_Beleza
+# App_Barber_Shop
 
 ## 🚀 O Projeto 
 Com objetivo de estudos, este projeto terá a implementação do React Native CLI utilizando:
