@@ -1,19 +1,27 @@
-import React from 'react';
-import { FlatList } from 'react-native';
-import Header from '../Header';
-import theme from '../../styles/theme.json';
-import util from '../../util';
+import React from "react";
+import { FlatList } from "react-native";
+
+import Header from "../../components/Header";
+import theme from "../../styles/theme.json";
+import util from "../../util";
+import Service from "../../components/Service";
+import ModalScheduling from "../../components/ModalScheduling";
 
 const Home = () => {
-    return (
-        <FlatList
-            stylee={{
-                backgroundColor: util.toAlpha(theme.color.muted, 10)
-            }}
-            ListEmptyComponent={Header}
-            data={[]}
-        />
-    )
-}
+  return (
+    <>
+      <FlatList
+        style={{
+          backgroundColor: util.toAlpha(theme.colors.muted, 10),
+        }}
+        ListHeaderComponent={Header}
+        data={[1, 2, 3, 4, 5]}
+        renderItem={(item) => <Service key={item} />}
+        keyExtractor={(key) => key}
+      />
+      {/* <ModalScheduling /> */}
+    </>
+  );
+};
 
 export default Home;
