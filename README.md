@@ -1,14 +1,30 @@
-# App_Salao_de_Beleza
+# App_Barber_Shop
 
 ## 🚀 O Projeto 
-Com objetivo de estudos, este projeto terá a implementação do React Native CLI, Gerenciamento de Estado pelo Redux, usando o Redux Persist entre outras ferramentas que formarão o App.
+Com objetivo de estudos, este projeto terá a implementação do React Native CLI utilizando:
+- Componente Funcional com Hooks
+- Redux Persist
+- styled-component
+- async-storage
+- react-native-paper
+- react-native-gesture-handler
+E outros.
+
+
+## 💻 Status
+
+O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+- [x] Implementação do Redux 
+- [ ] Criação de layouts 🚧 
+- [ ] Estrutura de dados
+- [ ] Teste
 
 ## Funcionalidades
 O App será para agendamento por horário no salão de beleza, podendo escolher o dia, horário e profissional e o serviço desejado até a opção (simulação) de pagamento e agendamento.
 
 
 ## 🛠 Instalando o Projeto
-Para instalar o App_Salao_de_Beleza, siga estas etapas:
+Para instalar o App_Barber_Shop, siga estas etapas:
 
 #### Metro
 After cloning the repo, install the dependencies locally with `yarn` or `npm i`
