@@ -70,7 +70,7 @@ export const Text = styled(TextPaper)`
 `;
 
 export const Box = styled.View`
-  flex: 1;
+  flex: ${(props) => props.flexBox || "1" };
   flex-wrap: ${(props) => props.wrap || "nowrap"};
   flex-direction: ${(props) => props.direction || "row"};
   justify-content: ${(props) => props.justify || "flex-start"};
@@ -123,4 +123,9 @@ export const TextInput = styled(TextInputPaper).attrs({
   width: 100%;
   font-size: 15px;
   background: ${theme.colors.light};
+`;
+
+export const Spacer = styled.View`
+  width: 100%;
+  height: ${(props) => props.size || '10px'};
 `;
