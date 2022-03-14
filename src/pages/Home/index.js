@@ -19,7 +19,7 @@ const Home = () => {
         renderItem={(item) => <Service key={item} />}
         keyExtractor={(key) => key}
       />
-      {/* <ModalScheduling /> */}
+      <ModalScheduling />
     </>
   );
 };
