@@ -1,0 +1,223 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Isildo", "last": "Teixeira" },
+      "location": {
+        "street": { "number": 7091, "name": "Rua Bela Vista " },
+        "city": "Maracanaú",
+        "state": "Maranhão",
+        "country": "Brazil",
+        "postcode": 99715,
+        "coordinates": { "latitude": "-48.6405", "longitude": "6.9168" },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "isildo.teixeira@example.com",
+      "login": {
+        "uuid": "fdb185f0-c87a-4bab-9b78-3e21fb8d02a1",
+        "username": "sadladybug561",
+        "password": "monkeybo",
+        "salt": "cXFEQUNR",
+        "md5": "a861112ad6a65e6cfc6f2c27a147f13f",
+        "sha1": "32dcbcbd81501380be8c251feb6fd325b0c50f7a",
+        "sha256": "ce910eb54403ea314df4f296b4867253df591051b5a1e637c1fe33ca2aca74f4"
+      },
+      "dob": { "date": "1956-02-24T02:04:49.012Z", "age": 66 },
+      "registered": { "date": "2018-03-25T10:55:09.297Z", "age": 4 },
+      "phone": "(19) 7580-1613",
+      "cell": "(44) 3559-3429",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/16.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/16.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/16.jpg"
+      },
+      "nat": "BR"
+    },
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Oseias", "last": "da Mata" },
+      "location": {
+        "street": { "number": 3977, "name": "Rua Rio de Janeiro " },
+        "city": "Formosa",
+        "state": "Tocantins",
+        "country": "Brazil",
+        "postcode": 50700,
+        "coordinates": { "latitude": "-23.1871", "longitude": "-34.9843" },
+        "timezone": { "offset": "+3:30", "description": "Tehran" }
+      },
+      "email": "oseias.damata@example.com",
+      "login": {
+        "uuid": "7688e573-f2c4-4969-9f76-cb718df8da68",
+        "username": "ticklishostrich458",
+        "password": "lucky13",
+        "salt": "zVUCfF28",
+        "md5": "19530d7ddc091204fb729ec343c45205",
+        "sha1": "98fb9ddfc5e7bd27b4f23762cbd2aa8a9864fc45",
+        "sha256": "b6b52f1eb656185d1260f3499bbc882ea755dcf7781164618c1049f5aac10d9a"
+      },
+      "dob": { "date": "1974-11-24T19:07:33.242Z", "age": 48 },
+      "registered": { "date": "2009-04-28T06:25:39.044Z", "age": 13 },
+      "phone": "(41) 9488-3460",
+      "cell": "(04) 1784-7939",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/67.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/67.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/67.jpg"
+      },
+      "nat": "BR"
+    },
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Orlindo", "last": "Mendes" },
+      "location": {
+        "street": { "number": 7451, "name": "Rua Quatro" },
+        "city": "Diadema",
+        "state": "Maranhão",
+        "country": "Brazil",
+        "postcode": 20322,
+        "coordinates": { "latitude": "-16.9882", "longitude": "63.5618" },
+        "timezone": { "offset": "+9:30", "description": "Adelaide, Darwin" }
+      },
+      "email": "orlindo.mendes@example.com",
+      "login": {
+        "uuid": "72f6dc66-a016-42cd-bcf4-f2b9eb8451e6",
+        "username": "beautifulgoose720",
+        "password": "antonia",
+        "salt": "3zS8Le2i",
+        "md5": "c192b8a28e43ab5abe97e8fe46a6a0a0",
+        "sha1": "77a2dd0c5eac45ea51dca990dd73049b4a2410b6",
+        "sha256": "edf7f666fb1436cb1a0ebf1bb9318c4e5fcf31f28ec62cae2887663f637c758b"
+      },
+      "dob": { "date": "1970-01-18T12:40:01.492Z", "age": 52 },
+      "registered": { "date": "2010-04-11T19:06:55.995Z", "age": 12 },
+      "phone": "(71) 0403-4076",
+      "cell": "(45) 3301-8606",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/60.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/60.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/60.jpg"
+      },
+      "nat": "BR"
+    },
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Mimoso", "last": "Santos" },
+      "location": {
+        "street": { "number": 171, "name": "Rua Alagoas " },
+        "city": "Toledo",
+        "state": "Pernambuco",
+        "country": "Brazil",
+        "postcode": 56150,
+        "coordinates": { "latitude": "40.2511", "longitude": "166.3354" },
+        "timezone": {
+          "offset": "+3:00",
+          "description": "Baghdad, Riyadh, Moscow, St. Petersburg"
+        }
+      },
+      "email": "mimoso.santos@example.com",
+      "login": {
+        "uuid": "91d2105b-779c-4217-9570-ca785502d91a",
+        "username": "yellowsnake850",
+        "password": "maxell",
+        "salt": "hixFJrmB",
+        "md5": "6f801af624bdad1640af8478754fd52f",
+        "sha1": "cb7d3da840436e60407f034489a03e1cace582c1",
+        "sha256": "bcf36bdc0ce065937ee57378c20a4757176e4b7573256f239948a43eb8ce02a9"
+      },
+      "dob": { "date": "1961-11-24T22:39:46.408Z", "age": 61 },
+      "registered": { "date": "2014-05-26T07:07:29.934Z", "age": 8 },
+      "phone": "(24) 1328-8020",
+      "cell": "(79) 5769-2762",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/35.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/35.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/35.jpg"
+      },
+      "nat": "BR"
+    },
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Everaldo", "last": "da Mata" },
+      "location": {
+        "street": { "number": 7321, "name": "Rua Belo Horizonte " },
+        "city": "Paranaguá",
+        "state": "Amazonas",
+        "country": "Brazil",
+        "postcode": 63016,
+        "coordinates": { "latitude": "-2.4123", "longitude": "63.5212" },
+        "timezone": { "offset": "-9:00", "description": "Alaska" }
+      },
+      "email": "everaldo.damata@example.com",
+      "login": {
+        "uuid": "e801e982-2689-4437-9fdd-5b546364de03",
+        "username": "happyfish369",
+        "password": "newton",
+        "salt": "3lcI7CO0",
+        "md5": "d802452ee77ae9499407538b094bfead",
+        "sha1": "5807d03e78c0037d3fc7616c66536e0e2b6d26b8",
+        "sha256": "852adc2206dad7410614e08510d24e1afcd30428b44561342cf2710eddb2a14f"
+      },
+      "dob": { "date": "1950-09-11T07:06:09.358Z", "age": 72 },
+      "registered": { "date": "2008-07-10T03:44:01.362Z", "age": 14 },
+      "phone": "(72) 8799-0578",
+      "cell": "(31) 0807-8666",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/26.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/26.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/26.jpg"
+      },
+      "nat": "BR"
+    },
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Jociano", "last": "Lopes" },
+      "location": {
+        "street": { "number": 9918, "name": "Beco dos Namorados" },
+        "city": "Marília",
+        "state": "Bahia",
+        "country": "Brazil",
+        "postcode": 80996,
+        "coordinates": { "latitude": "-74.6960", "longitude": "90.2934" },
+        "timezone": {
+          "offset": "+2:00",
+          "description": "Kaliningrad, South Africa"
+        }
+      },
+      "email": "jociano.lopes@example.com",
+      "login": {
+        "uuid": "f9b9f3ca-3e54-41b2-929e-308f7afa6441",
+        "username": "beautifulbear989",
+        "password": "joung",
+        "salt": "yLikYxG3",
+        "md5": "96ec1d27289de5377e84a6697f8c855c",
+        "sha1": "bc8e54188603c2d552787fbeaa2bd10b9dd15055",
+        "sha256": "f4666d606eb93fbbff48631dc222b4f4374a477b24129fcce0a5492bb92492fa"
+      },
+      "dob": { "date": "1971-09-10T20:27:32.902Z", "age": 51 },
+      "registered": { "date": "2009-08-19T12:58:11.276Z", "age": 13 },
+      "phone": "(80) 7963-1986",
+      "cell": "(22) 2011-0006",
+      "id": { "name": "", "value": null },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/91.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/91.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/91.jpg"
+      },
+      "nat": "BR"
+    }
+  ],
+  "info": {
+    "seed": "44e5c9927351ad0e",
+    "results": 6,
+    "page": 1,
+    "version": "1.3"
+  }
+}
