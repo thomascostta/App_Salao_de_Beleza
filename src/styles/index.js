@@ -24,6 +24,7 @@ export const Cover = styled.ImageBackground.attrs((props) => ({
   border-radius: ${(props) => (props.circle ? props.width : "3px")};
   border: ${(props) => props.border || "none"};
   background-color: ${theme.colors.muted};
+  overflow: hidden;
 `;
 
 export const GradientView = styled(LinearGradient).attrs((props) => ({
@@ -108,7 +109,7 @@ export const Button = styled(ButtonPaper).attrs((props) => ({
   labelStyle: {
     color: theme.colors[props.textColor || "light"],
     letterSpacing: 0,
-  },
+  }
 }))``;
 
 export const TextInput = styled(TextInputPaper).attrs({
