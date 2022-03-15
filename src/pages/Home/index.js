@@ -17,7 +17,7 @@ const Home = () => {
         ListHeaderComponent={Header}
         data={[1, 2, 3, 4, 5]}
         renderItem={(item) => <Service key={item} />}
-        keyExtractor={(key) => key}
+        keyExtractor={(item) => item}
       />
       <ModalScheduling />
     </>
