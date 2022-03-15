@@ -11,7 +11,7 @@ import theme from "../../styles/theme.json";
 const ModalScheduling = () => {
   return (
     <Modal
-      // isVisible={true}
+      // isVisible={false}
       style={{
         width: "100%",
         height: "100%",
@@ -28,38 +28,6 @@ const ModalScheduling = () => {
         <DateTime />
       </ScrollView>
     </Modal>
-    // <View
-    //   //
-    //
-    // >
-    //   <Box height="70px">
-    //     <GradientView
-    //       colors={[theme.colors.dark, theme.colors.primary]}
-    //       start={{ x: 0, y: 0 }}
-    //       end={{ x: 1, y: 0 }}
-    //     >
-    //       <Box>
-    //         <View>
-    //           <Touchable hasPadding>
-    //             <Icon
-    //               name="chevron-left"
-    //               color={theme.colors.light}
-    //               size={30}
-    //             />
-    //           </Touchable>
-    //         </View>
-    //         <View style={{ marginTop: 10 }}>
-    //           <Text color="light" margimBottom="3px">
-    //             Finalizar Agendamento
-    //           </Text>
-    //           <Text small color="light">
-    //             Horário, pagamento e especialista
-    //           </Text>
-    //         </View>
-    //       </Box>
-    //     </GradientView>
-    //   </Box>
-    // </View>
   );
 };
 
