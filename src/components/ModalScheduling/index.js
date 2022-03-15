@@ -1,32 +1,36 @@
 import React from "react";
-import { ScrollView, Dimensions, View, Modal } from "react-native";
+import { Dimensions, View, Modal } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import ModalHeader from "./header";
 import Resume from "./resume";
-import DateTime from './dateTime';
-// import Modal from "react-native-modal";
-import { Box, Title, Text, GradientView, Touchable } from "../../styles";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import theme from "../../styles/theme.json";
+import DateTime from "./dateTime";
+import SpecialistsPicker from "./specialists";
+import ModalSpecialists from "./specialists/modalSpecialists";
 
-const ModalScheduling = () => {
+const ModalScheduling = (isVisible) => {
   return (
     <Modal
-      // isVisible={false}
+      // isVisible={isVisible}
       style={{
         width: "100%",
         height: "100%",
         padding: 0,
       }}
     >
-      <ScrollView
-        style={{
-          backgroundColor: "#ffffff",
-        }}
-      >
-        <ModalHeader />
-        <Resume />
-        <DateTime />
-      </ScrollView>
+      <>
+        <ScrollView
+          style={{
+            backgroundColor: "#ffffff",
+          }}
+          stickyHeaderIndices={[1]} //Fixação de um elemento do Array
+        >
+          <ModalHeader />
+          <Resume />
+          <DateTime />
+          <SpecialistsPicker />
+        </ScrollView>
+        <ModalSpecialists />
+      </>
     </Modal>
   );
 };
