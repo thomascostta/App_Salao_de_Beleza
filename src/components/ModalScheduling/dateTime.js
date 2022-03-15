@@ -4,7 +4,7 @@ import { Touchable, Text, Title, Box } from "../../styles";
 import util from "../../util";
 import theme from "../../styles/theme.json";
 
-const dateTime = () => {
+const DateTime = () => {
   const [selectDate, setSelectDate] = useState();
   const [selectTime, setSelectTime] = useState();
 
@@ -105,18 +105,20 @@ const dateTime = () => {
                 justify="center"
                 align="center"
                 border={`1px solid ${
-                  time === selectTime
+                  time === "14:30"
                     ? theme.colors.primary
                     : util.toAlpha(theme.colors.muted, 20)
                 }`}
                 background={
-                  time === selectTime
-                    ? "primary"
-                    : "light" 
+                  time === "14:30"
+                    ? theme.colors.primary
+                    : util.toAlpha(theme.colors.muted, 20)
                 }
                 onPress={() => selectButtomTime(item)}
               >
-                <Text>{time}</Text>
+                <Text color={time === "14:30" ? "light" : undefined}>
+                  {time}
+                </Text>
               </Touchable>
             ))}
           </Box>
@@ -126,4 +128,4 @@ const dateTime = () => {
   );
 };
 
-export default dateTime;
+export default DateTime;
