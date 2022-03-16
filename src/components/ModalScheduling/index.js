@@ -6,11 +6,13 @@ import Resume from "./resume";
 import DateTime from "./dateTime";
 import SpecialistsPicker from "./specialists";
 import ModalSpecialists from "./specialists/modalSpecialists";
+import PaymentPicker from "../ModalScheduling/payment";
+import { Button, Box } from "../../styles";
 
-const ModalScheduling = (isVisible) => {
+const ModalScheduling = () => {
   return (
     <Modal
-      // isVisible={isVisible}
+      open={true}
       style={{
         width: "100%",
         height: "100%",
@@ -22,14 +24,26 @@ const ModalScheduling = (isVisible) => {
           style={{
             backgroundColor: "#ffffff",
           }}
-          stickyHeaderIndices={[1]} //Fixação de um elemento do Array
+          stickyHeaderIndices={[0]} //Fixação de um elemento do Array
         >
           <ModalHeader />
           <Resume />
           <DateTime />
           <SpecialistsPicker />
+          <PaymentPicker />
+          <Box hasPadding>
+            <Button
+              icon="check"
+              background="primary"
+              mode="contained"
+              block
+              uppercase={false}
+            >
+              Confirmar meu agendamento
+            </Button>
+          </Box>
         </ScrollView>
-        <ModalSpecialists />
+        {/* <ModalSpecialists /> */}
       </>
     </Modal>
   );
