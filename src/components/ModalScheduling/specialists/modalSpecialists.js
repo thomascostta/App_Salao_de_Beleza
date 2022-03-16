@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image } from "react-native";
+import { Image, Dimensions } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import Modal from "react-native-simple-modal";
 
@@ -17,15 +17,15 @@ const ModalSpecialists = () => {
             Selecione o Especialista
           </Text>
           <Text small>Disponíveis em 20/04/21 (Sex) às 11:30</Text>
-          <Box spacing="10px 0 0">
+          <Box justify="space-around" wrap="wrap" spacing="10px 0 0 0">
             {dataSpecialist.results.map((item) => {
               return (
                 <Touchable
-                  width="70px"
+                  width={(Dimensions.get("screen").width - 80) / 4}
                   height="70px"
-                  spacing="10px 0 0 0"
                   direction="column"
                   align="center"
+                  spacing="5px"
                   onPress={() => setBorderColor(item)}
                 >
                   <Image
@@ -34,7 +34,8 @@ const ModalSpecialists = () => {
                       height: 45,
                       borderRadius: 50,
                       borderWidth: 4,
-                      borderColor: item === borderColor ? theme.colors.primary : null
+                      borderColor:
+                        item === borderColor ? theme.colors.primary : null,
                     }}
                     source={{ uri: item.picture.medium }}
                   />
