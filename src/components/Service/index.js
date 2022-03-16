@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, Touchable, Box, Cover, Title, Button } from "../../styles";
 
-const service = () => {
+const Service = (key) => {
   return (
-    <Touchable height="100px" hasPadding align="center" background="light">
+    <Touchable key={key} height="100px" hasPadding align="center" background="light">
       <Cover image="https://static1.fiquediva.com.br/articles/4/18/69/4/@/144160-o-falso-moicano-no-cabelo-masculino-e-um-article_gallery_portrait-2.jpg" />
       <Box direction="column">
         <Text bold color="dark">
@@ -24,4 +24,4 @@ const service = () => {
   );
 };
 
-export default service;
+export default Service;
