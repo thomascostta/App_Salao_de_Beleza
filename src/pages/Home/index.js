@@ -1,13 +1,20 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, View, Image } from "react-native";
 
 import Header from "../../components/Header";
 import theme from "../../styles/theme.json";
 import util from "../../util";
 import Service from "../../components/Service";
 import ModalScheduling from "../../components/ModalScheduling";
+import ModalSpecialists from "../../components/ModalScheduling/specialists/modalSpecialists";
+import { results } from "../../data/dataHaircut.json";
 
 const Home = () => {
+  
+  const renderItem = ({ item }) => {
+    return <Service item={item} />;
+  };
+
   return (
     <>
       <FlatList
@@ -15,11 +22,12 @@ const Home = () => {
           backgroundColor: util.toAlpha(theme.colors.muted, 10),
         }}
         ListHeaderComponent={Header}
-        data={[1, 2, 3, 4, 5]}
-        renderItem={(item) => <Service key={item} />}
-        keyExtractor={(item) => item}
+        data={results}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
       />
-      <ModalScheduling />
+      {/* <ModalScheduling /> */}
+      {/* <ModalSpecialists /> */}
     </>
   );
 };
