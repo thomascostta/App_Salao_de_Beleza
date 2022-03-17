@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "id": "1",
+      "corte": "Bold undercut para cabelos lisos",
+      "valor": 35.0,
+      "image": "https://salaovirtual.org/wp-content/uploads/2016/05/undercut-com-coque.jpg"
+    },
+    {
+      "id": "2",
+      "corte": "Undercut com fade e cabelo mais longo",
+      "valor": 30.0,
+      "image": "https://salaovirtual.org/wp-content/uploads/2016/05/pomada-barba.jpg"
+    },
+    {
+      "id": "3",
+      "corte": "Barba degradê style",
+      "valor": 20.0,
+      "image": "https://i.pinimg.com/564x/fd/b2/2c/fdb22cbb88361de6419482b5eab0fdc1.jpg"
+    }
+  ]
+}
