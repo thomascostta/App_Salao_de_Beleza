@@ -25,14 +25,14 @@ const DateTime = () => {
         data={["a", "b", "c", "d", "e", "f"]}
         horizontal
         showsHorizontalScrollIndicator={false} // Tirar a barra de rolagem
-        keyExtractor={(item) => item}
+        keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={{
           paddingLeft: 20,
           marginRight: 20,
         }}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <Touchable
-            key={item}
+            key={index}
             width="70px"
             height="80px"
             spacing="0 10px 0 0"
