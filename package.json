@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:8081 tcp:8081",
+    "android": "react-native run-android && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:8000 tcp:8000",
     "ios": "react-native run-ios",
-    "start": "react-native start --reset-cache && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:8081 tcp:8081",
+    "start": "react-native start --reset-cache && adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090 && adb reverse tcp:8000 tcp:8000",
     "test": "jest",
     "lint": "eslint .",
     "reactotron": "adb reverse tcp:9090 tcp:9090",
-    "clear_all": "yarn cache clean && cd android && ./gradlew clean && cd .."
+    "clear_all": "yarn cache clean && cd android && ./gradlew clean && cd ..",
+    "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:8000 tcp:8000 && adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.4",
