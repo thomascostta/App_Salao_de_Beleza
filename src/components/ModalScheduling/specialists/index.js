@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, View } from "react-native";
 import { Box, Text, Cover, Button } from "../../../styles";
-import dataSpecialist from "../../../config/dataSpecialist.json";
+import dataSpecialist from "../../../data/dataSpecialist.json";
 import theme from "../../../styles/theme.json";
 
 const SpecialistsPicker = () => {
