@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Linking } from "react-native";
+import { Dimensions, Linking, Share } from "react-native";
 import {
   Cover,
   GradientView,
@@ -45,9 +45,13 @@ const Header = () => {
             width="65px"
             align="center"
             direction="column"
-            onPress={() => Linking.openURL(`tel:11977223377`)}
+            onPress={() => {
+              Share.share({
+                message: `Barber Shop Rock Bar - O salão mais estiloso de Sampa`,
+              });
+            }}
           >
-            <Icon name="phone" size={24} color={theme.colors.muted} />
+            <Icon name="share" size={24} color={theme.colors.muted} />
             <Text small spacing="10px 0 0">
               Ligar
             </Text>
@@ -65,8 +69,27 @@ const Header = () => {
               Visitar
             </Text>
           </Touchable>
-          <Touchable width="65px" align="center" direction="column">
-            <Icon name="share" size={24} color={theme.colors.muted} />
+          <Touchable
+            width="65px"
+            align="center"
+            direction="column"
+            onPress={() =>
+              Linking.canOpenURL("whatsapp://send?text=oi").then(
+                (supported) => {
+                  if (supported) {
+                    return Linking.openURL(
+                      "whatsapp://send?phone=5511977223377&text=Olá, gostaria de agendar um horário"
+                    );
+                  } else {
+                    return Linking.openURL(
+                      "https://api.whatsapp.com/send?phone=5531999999999&text=Olá, gostaria de agendar um horário"
+                    );
+                  }
+                }
+              )
+            }
+          >
+            <Icon name="whatsapp" size={24} color={theme.colors.muted} />
             <Text small spacing="10px 0 0">
               Share
             </Text>
