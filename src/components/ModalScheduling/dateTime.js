@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { Touchable, Text, Title, Box } from "../../styles";
 import util from "../../util";
@@ -7,6 +7,66 @@ import theme from "../../styles/theme.json";
 const DateTime = () => {
   const [selectDate, setSelectDate] = useState();
   const [selectTime, setSelectTime] = useState();
+  const [selectedYear, setSelectedYear] = useState(0);
+  const [selectedMonth, setSelectedMonth] = useState(0);
+  const [selectedDay, setSelectedDay] = useState(0);
+  const [selectedHour, setSelectedHour] = useState(null);
+  const [listDays, setListDays] = useState([]);
+  const [listHours, setListHours] = useState([]);
+
+  useEffect(() => {
+    const today = new Date();
+    setSelectedYear(today.getFullYear());
+    setSelectedMonth(today.getMonth());
+    setSelectedDay(today.getDate());
+  }, []);
+
+  const months = [
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
+  ];
+
+  const days = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+
+  useEffect(() => {
+    let daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+    console.log('daysInMonth    '+daysInMonth)
+    let newListDays = [];
+    for (let i = 1; i <= daysInMonth; i++) 
+    {
+      console.log(i)
+      let d = new Date(selectedYear,' ---', selectedMonth, ' ----', i);
+      console.log(d)
+      let year = d.getFullYear();
+      let month = d.getMonth() + 1;
+      let day = d.getDate();
+      month = month < 10 ? "0" + month : month;
+      day = day < 10 ? "0" + day : day;
+      // let selDate = `${year}-${month}-${day}`;
+      // let aviability = user.available.filter((e) => e.date === selDate);
+      // console.log('aviability   ', aviability  )
+      newListDays.push({
+        // status: aviability.length > 0 ? true : false,
+        weekday: days[d.getDay()],
+        number: i,
+        month: months[d.getMonth()],
+      });
+    }
+    setListDays(newListDays);
+    setSelectedDay(0);
+    setListHours([]);
+    setSelectedHour(0);
+  }, [selectedMonth, selectedYear]);
 
   const selectButtom = (item) => {
     setSelectDate(item);
@@ -22,7 +82,7 @@ const DateTime = () => {
         Pra quando você deseja agendar
       </Text>
       <FlatList
-        data={["a", "b", "c", "d", "e", "f"]}
+        data={listDays}
         horizontal
         showsHorizontalScrollIndicator={false} // Tirar a barra de rolagem
         keyExtractor={(item, index) => index.toString()}
@@ -60,19 +120,19 @@ const DateTime = () => {
                 small
                 color={item === selectDate ? theme.colors.light : undefined}
               >
-                Dom
+                {item.weekday}
               </Text>
               <Title
                 small
                 color={item === selectDate ? theme.colors.light : undefined}
               >
-                19
+                {item.number}
               </Title>
               <Text
                 small
                 color={item === selectDate ? theme.colors.light : undefined}
               >
-                Abril
+                {item.month}
               </Text>
             </Box>
           </Touchable>
