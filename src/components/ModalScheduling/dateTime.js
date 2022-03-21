@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
-import { Touchable, Text, Title, Box } from "../../styles";
+import { Touchable, Text, Title, Box, Button } from "../../styles";
 import util from "../../util";
 import theme from "../../styles/theme.json";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const DateTime = () => {
   const [selectDate, setSelectDate] = useState();
@@ -69,11 +70,36 @@ const DateTime = () => {
     setSelectTime(item);
   };
 
+  const handleLeftDateClick = () => {
+    let mountDate = new Date(selectedYear, selectedMonth, 1);
+    mountDate.setMonth(mountDate.getMonth() - 1);
+    setSelectedYear(mountDate.getFullYear());
+    setSelectedMonth(mountDate.getMonth());
+    setSelectedDay(1);
+  };
+
+  const handleRightDateClick = () => {
+    let mountDate = new Date(selectedYear, selectedMonth, 1);
+    mountDate.setMonth(mountDate.getMonth() + 1);
+    setSelectedYear(mountDate.getFullYear());
+    setSelectedMonth(mountDate.getMonth());
+    setSelectedDay(1);
+  };
+
   return (
     <>
       <Text bold color="dark" hasPadding>
         Pra quando você deseja agendar
       </Text>
+      <Box justify="center">
+        <Button onPress={() => handleLeftDateClick()} >
+          <Icon name="arrow-back-ios" size={24} color={theme.colors.muted} />
+        </Button>
+          <Text bold spacing="10px">{months[selectedMonth]} {selectedYear}</Text>
+        <Button onPress={() => handleRightDateClick()}>
+          <Icon name="arrow-forward-ios" size={24} color={theme.colors.muted} />
+        </Button>
+      </Box>
       <FlatList
         data={listDays}
         horizontal
