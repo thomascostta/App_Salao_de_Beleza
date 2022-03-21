@@ -22,50 +22,43 @@ const DateTime = () => {
   }, []);
 
   const months = [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro",
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ag",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez",
   ];
 
   const days = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
   useEffect(() => {
     let daysInMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-    console.log('daysInMonth    '+daysInMonth)
     let newListDays = [];
-    for (let i = 1; i <= daysInMonth; i++) 
-    {
-      console.log(i)
-      let d = new Date(selectedYear,' ---', selectedMonth, ' ----', i);
-      console.log(d)
-      let year = d.getFullYear();
-      let month = d.getMonth() + 1;
+
+    for (let i = 1; i <= daysInMonth; i++) {
+      let d = new Date(selectedYear, selectedMonth, i);
+      let month = d.getMonth();
       let day = d.getDate();
       month = month < 10 ? "0" + month : month;
       day = day < 10 ? "0" + day : day;
-      // let selDate = `${year}-${month}-${day}`;
-      // let aviability = user.available.filter((e) => e.date === selDate);
-      // console.log('aviability   ', aviability  )
+
       newListDays.push({
-        // status: aviability.length > 0 ? true : false,
-        weekday: days[d.getDay()],
-        number: i,
+        numberDays: i,
         month: months[d.getMonth()],
+        weekday: days[d.getDay()],
       });
+      setListDays(newListDays);
+      setSelectDate(0);
+      setListHours([]);
+      setSelectedHour(0);
     }
-    setListDays(newListDays);
-    setSelectedDay(0);
-    setListHours([]);
-    setSelectedHour(0);
   }, [selectedMonth, selectedYear]);
 
   const selectButtom = (item) => {
@@ -126,7 +119,7 @@ const DateTime = () => {
                 small
                 color={item === selectDate ? theme.colors.light : undefined}
               >
-                {item.number}
+                {item.numberDays}
               </Title>
               <Text
                 small
