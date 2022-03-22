@@ -11,6 +11,7 @@ const DateTime = () => {
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedMonth, setSelectedMonth] = useState(0);
   const [selectedDay, setSelectedDay] = useState(0);
+  console.log(selectedDay)
   const [selectedHour, setSelectedHour] = useState(null);
   const [listDays, setListDays] = useState([]);
   const [listHours, setListHours] = useState([]);
@@ -45,7 +46,7 @@ const DateTime = () => {
 
     for (let i = 1; i <= daysInMonth; i++) {
       let d = new Date(selectedYear, selectedMonth, i);
-      let month = d.getMonth();
+      let month = d.getMonth() + 1;
       let day = d.getDate();
       month = month < 10 ? "0" + month : month;
       day = day < 10 ? "0" + day : day;
@@ -69,7 +70,6 @@ const DateTime = () => {
   const selectButtomTime = (item) => {
     setSelectTime(item);
   };
-
   const handleLeftDateClick = () => {
     let mountDate = new Date(selectedYear, selectedMonth, 1);
     mountDate.setMonth(mountDate.getMonth() - 1);
@@ -92,10 +92,12 @@ const DateTime = () => {
         Pra quando você deseja agendar
       </Text>
       <Box justify="center">
-        <Button onPress={() => handleLeftDateClick()} >
+        <Button onPress={() => handleLeftDateClick()}>
           <Icon name="arrow-back-ios" size={24} color={theme.colors.muted} />
         </Button>
-          <Text bold spacing="10px">{months[selectedMonth]} {selectedYear}</Text>
+        <Text bold spacing="10px">
+          {months[selectedMonth]} {selectedYear}
+        </Text>
         <Button onPress={() => handleRightDateClick()}>
           <Icon name="arrow-forward-ios" size={24} color={theme.colors.muted} />
         </Button>
