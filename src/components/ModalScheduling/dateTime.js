@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, View } from "react-native-gesture-handler";
 import { Touchable, Text, Title, Box, Button } from "../../styles";
+import { dataTime } from "../../data/dataTime";
 import util from "../../util";
 import theme from "../../styles/theme.json";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -11,7 +12,6 @@ const DateTime = () => {
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedMonth, setSelectedMonth] = useState(0);
   const [selectedDay, setSelectedDay] = useState(0);
-  console.log(selectedDay)
   const [selectedHour, setSelectedHour] = useState(null);
   const [listDays, setListDays] = useState([]);
   const [listHours, setListHours] = useState([]);
@@ -46,21 +46,26 @@ const DateTime = () => {
 
     for (let i = 1; i <= daysInMonth; i++) {
       let d = new Date(selectedYear, selectedMonth, i);
+      // let year = d.getFullYear();
       let month = d.getMonth() + 1;
       let day = d.getDate();
       month = month < 10 ? "0" + month : month;
       day = day < 10 ? "0" + day : day;
+      // let selectedAvailableDate = `${year}-${month}-${day}`;
+
+      // let availability = available.filter(item => item.date === selectedAvailableDate)
 
       newListDays.push({
         numberDays: i,
         month: months[d.getMonth()],
         weekday: days[d.getDay()],
+        // status: availability.length > 0 ? true : false;
       });
-      setListDays(newListDays);
-      setSelectDate(0);
-      setListHours([]);
-      setSelectedHour(0);
     }
+    setListDays(newListDays);
+    setSelectDate(1);
+    setListHours([]);
+    setSelectedHour(0);
   }, [selectedMonth, selectedYear]);
 
   const selectButtom = (item) => {
@@ -75,7 +80,7 @@ const DateTime = () => {
     mountDate.setMonth(mountDate.getMonth() - 1);
     setSelectedYear(mountDate.getFullYear());
     setSelectedMonth(mountDate.getMonth());
-    setSelectedDay(1);
+    setSelectedDay(0);
   };
 
   const handleRightDateClick = () => {
@@ -83,7 +88,7 @@ const DateTime = () => {
     mountDate.setMonth(mountDate.getMonth() + 1);
     setSelectedYear(mountDate.getFullYear());
     setSelectedMonth(mountDate.getMonth());
-    setSelectedDay(1);
+    setSelectedDay(0);
   };
 
   return (
@@ -122,14 +127,16 @@ const DateTime = () => {
             justify="center"
             align="center"
             border={`1px solid ${
-              item === selectDate
+              item.numberDays === selectDate
                 ? theme.colors.primary
                 : util.toAlpha(theme.colors.muted, 20)
             }`}
             background={
-              item === selectDate ? theme.colors.primary : theme.colors.light
+              item.numberDays === selectDate
+                ? theme.colors.primary
+                : theme.colors.light
             }
-            onPress={() => selectButtom(item)}
+            onPress={() => selectButtom(item.numberDays)}
           >
             <Box
               direction="column"
@@ -138,20 +145,23 @@ const DateTime = () => {
               justify="space-around"
             >
               <Text
+                bold
                 small
-                color={item === selectDate ? theme.colors.light : undefined}
+                color={item.numberDays === selectDate ? "light" : undefined}
               >
                 {item.weekday}
               </Text>
               <Title
+                bold
                 small
-                color={item === selectDate ? theme.colors.light : undefined}
+                color={item.numberDays === selectDate ? "light" : undefined}
               >
                 {item.numberDays}
               </Title>
               <Text
+                bold
                 small
-                color={item === selectDate ? theme.colors.light : undefined}
+                color={item.numberDays === selectDate ? "light" : undefined}
               >
                 {item.month}
               </Text>
@@ -163,12 +173,8 @@ const DateTime = () => {
         Que horas?
       </Text>
       <FlatList
-        data={[
-          ["14:30", "15:00"],
-          ["15:30", "16:00"],
-          ["16:30", "17:00"],
-          ["17:30"],
-        ]}
+        data={dataTime}
+        keyExtractor={(item, index) => index}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
@@ -176,32 +182,34 @@ const DateTime = () => {
         }}
         renderItem={({ item }) => (
           <Box direction="column" spacing="0 10px 0 0">
-            {item.map((time) => (
-              <Touchable
-                key={time}
-                width="100px"
-                height="35px"
-                spacing="0 0 5px 0"
-                rounded="7px"
-                justify="center"
-                align="center"
-                border={`1px solid ${
-                  time === "14:30"
-                    ? theme.colors.primary
-                    : util.toAlpha(theme.colors.muted, 20)
-                }`}
-                background={
-                  time === "14:30"
-                    ? theme.colors.primary
-                    : util.toAlpha(theme.colors.muted, 20)
-                }
-                onPress={() => selectButtomTime(item)}
+            <Touchable
+              key={item.id}
+              width="100px"
+              height="35px"
+              spacing="0 0 5px 0"
+              rounded="7px"
+              justify="center"
+              align="center"
+              border={`1px solid ${
+                item.time === selectTime
+                  ? theme.colors.primary
+                  : util.toAlpha(theme.colors.muted, 20)
+              }`}
+              background={
+                item.time === selectTime
+                  ? theme.colors.primary
+                  : util.toAlpha(theme.colors.muted, 20)
+              }
+              onPress={() => selectButtomTime(item.time)}
+            >
+              <Text
+                spacing="7px 0 0 0"
+                bold
+                color={item.time === selectTime ? "light" : undefined}
               >
-                <Text color={time === "14:30" ? "light" : undefined}>
-                  {time}
-                </Text>
-              </Touchable>
-            ))}
+                {item.time}
+              </Text>
+            </Touchable>
           </Box>
         )}
       />
