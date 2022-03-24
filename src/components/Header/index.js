@@ -1,5 +1,6 @@
 import React from "react";
 import { Dimensions, Linking, Share } from "react-native";
+import { useSelector } from 'react-redux';
 import {
   Cover,
   GradientView,
@@ -13,9 +14,10 @@ import {
 } from "../../styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import theme from "../../styles/theme.json";
-import { results } from "../../data/dataHaircut.json";
 
 const Header = () => {
+  const { services } = useSelector(state => state.salao)
+
   return (
     <>
       <Cover
@@ -110,7 +112,7 @@ const Header = () => {
         </Box>
       </Box>
       <Box hasPadding direction="column" background="light" spacing="10px 0 0">
-        <Title small>Serviços - {results.length}</Title>
+        <Title small>Serviços - {services.length}</Title>
         <TextInput placeholder="Bora ficar bonito..."></TextInput>
       </Box>
     </>
