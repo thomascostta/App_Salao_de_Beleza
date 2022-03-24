@@ -1,6 +1,6 @@
 import React from "react";
 import { Dimensions, Linking, Share } from "react-native";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import {
   Cover,
   GradientView,
@@ -16,7 +16,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import theme from "../../styles/theme.json";
 
 const Header = () => {
-  const { services } = useSelector(state => state.salao)
+  const { services } = useSelector((state) => state.salao);
 
   return (
     <>
@@ -55,7 +55,7 @@ const Header = () => {
           >
             <Icon name="share" size={24} color={theme.colors.muted} />
             <Text small spacing="10px 0 0">
-              Ligar
+              Share
             </Text>
           </Touchable>
           <Touchable
@@ -93,7 +93,7 @@ const Header = () => {
           >
             <Icon name="whatsapp" size={24} color={theme.colors.muted} />
             <Text small spacing="10px 0 0">
-              Share
+              Whats
             </Text>
           </Touchable>
         </Box>
