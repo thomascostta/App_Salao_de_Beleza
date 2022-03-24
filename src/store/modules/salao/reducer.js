@@ -74,10 +74,16 @@ const INITIAL_STATE = {
 export default function salao(state = INITIAL_STATE, action) {
   switch (action.type) {
     case types.ALL_SERVICES: {
-      return produce(state, (draft) => {
-        draft.salao = { ...draft.salao, ...action.salao };
-      });
+      return {...state.services, ...action.services }
     }
+
+
+    // with the lib 'immer'
+    // case types.ALL_SERVICES: {
+    //   return produce(state, (draft) => {
+    //     draft.salao = { ...draft.salao, ...action.salao };
+    //   });
+    // }
 
     default:
       return state;
