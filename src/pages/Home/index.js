@@ -10,7 +10,17 @@ import ModalScheduling from "../../components/ModalScheduling";
 import ModalSpecialists from "../../components/ModalScheduling/specialists/modalSpecialists";
 
 const Home = () => {
-  const { services } = useSelector((state) => state.salao);
+  const { services, form } = useSelector((state) => state.salao);
+
+  const searchService =
+    form.inputFiltro.length > 0
+      ? services.filter((search) => {
+          const title = search.corte.toLowerCase().trim();
+          const arrSearch = form.inputFiltro.toLowerCase().trim().split(" ");
+          const teste = arrSearch.every((write) => title.search(write) !== -1);
+          return arrSearch.every((write) => title.search(write) !== -1);
+        })
+      : services;
 
   const renderItem = ({ item }) => {
     return <Service services={item} key={item} />;
@@ -23,7 +33,7 @@ const Home = () => {
           backgroundColor: util.toAlpha(theme.colors.muted, 10),
         }}
         ListHeaderComponent={Header}
-        data={services}
+        data={searchService}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
