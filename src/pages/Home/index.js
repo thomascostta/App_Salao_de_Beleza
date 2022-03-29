@@ -17,7 +17,6 @@ const Home = () => {
       ? services.filter((search) => {
           const title = search.corte.toLowerCase().trim();
           const arrSearch = form.inputFiltro.toLowerCase().trim().split(" ");
-          const teste = arrSearch.every((write) => title.search(write) !== -1);
           return arrSearch.every((write) => title.search(write) !== -1);
         })
       : services;
