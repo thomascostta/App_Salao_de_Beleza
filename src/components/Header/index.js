@@ -1,6 +1,5 @@
 import React from "react";
 import { Dimensions, Linking, Share } from "react-native";
-import { useSelector } from "react-redux";
 import {
   Cover,
   GradientView,
@@ -15,7 +14,11 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import theme from "../../styles/theme.json";
 
+import { useSelector, useDispatch } from "react-redux";
+import { updateForm } from "../../store/modules/salao/actions";
+
 const Header = () => {
+  const dispatch = useDispatch();
   const { services } = useSelector((state) => state.salao);
 
   return (
@@ -112,8 +115,13 @@ const Header = () => {
         </Box>
       </Box>
       <Box hasPadding direction="column" background="light" spacing="10px 0 0">
-        <Title small>Serviços - {services.length}</Title>
-        <TextInput placeholder="Bora ficar bonito..."></TextInput>
+        <Text bold>Serviços - {services.length}</Text>
+        <TextInput
+          placeholder="Bora ficar bonito..."
+          onChangeText={(value) => dispatch(updateForm({ inputFiltro: value }))}
+          onFocus={() => dispatch(updateForm({ inputFiltroFoco: true }))}
+          onBlue={() => dispatch(updateForm({ inputFiltroFoco: false }))}
+        ></TextInput>
       </Box>
     </>
   );
