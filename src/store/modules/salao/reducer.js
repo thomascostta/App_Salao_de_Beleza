@@ -44,15 +44,6 @@ export default function salao(state = INITIAL_STATE, action) {
         },
       };
 
-      // case types.UPDATE_FORM: {
-      //   return {
-      //     ...state,
-      //     form: {
-      //       ...state.form,
-      //       inputFiltro: action.payload,
-      //     },
-      //   };
-
       // *** with the lib 'immer'
       // case types.UPDATE_FORM: {
       //   return produce(state, (draft) => {
