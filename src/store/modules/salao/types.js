@@ -1,6 +1,9 @@
 const types = {
   ALL_SERVICES: "@salao/ALL_SERVICES",
   UPDATE_FORM: "@salao/UPDATE_FORM",
+  UPDATE_SCHEDULE: "@salao/UPDATE_SCHEDULE",
+  UPDATE_SCHEDULING: "@salao/UPDATE_SCHEDULING",
+  FILTER_SCHEDULE: "@salao/FILTER_SCHEDULE",
 };
 
 export default types;
