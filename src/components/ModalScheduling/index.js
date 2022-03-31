@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Dimensions, View, Modal } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ModalHeader from "./header";
@@ -8,16 +8,22 @@ import SpecialistsPicker from "./specialists";
 import ModalSpecialists from "./specialists/modalSpecialists";
 import PaymentPicker from "../ModalScheduling/payment";
 import { Button, Box } from "../../styles";
+import { useSelector } from "react-redux";
 
 const ModalScheduling = () => {
+  const { form, agendamento, services } = useSelector((state) => state.salao);
+  const modalRef = useRef(null);
+
   return (
     <Modal
-      open={true}
+      ref={modalRef}
+      visible={form.modalAgendamento}
       style={{
         width: "100%",
         height: "100%",
         padding: 0,
       }}
+      animationType="slide"
     >
       <>
         <ScrollView
@@ -27,7 +33,7 @@ const ModalScheduling = () => {
           stickyHeaderIndices={[0]} //Fixação de um elemento do Array
         >
           <ModalHeader />
-          <Resume />
+          <Resume agendamento={agendamento} services={services}/>
           <DateTime />
           <SpecialistsPicker />
           <PaymentPicker />
