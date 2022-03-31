@@ -50,8 +50,29 @@ export default function salao(state = INITIAL_STATE, action) {
     // }
 
     case types.UPDATE_SCHEDULING: {
-      return { ...state, form: { ...state.form, ...action.payload } };
+      return {
+        ...state,
+        form: {
+          ...state.form,
+          modalAgendamento: true,
+        },
+        agendamento: {
+          ...state.agendamento,
+          servicoId: action.payload.id,
+        },
+      };
     }
+
+    // *** with the lib 'immer'
+    // case types.UPDATE_SCHEDULING: {
+    //   return produce(state, (draft) => {
+    //     draft.form.modalAgendamento = true;
+    //     draft.agendamento = {
+    //       ...state.agendamento,
+    //       servicoId: action.payload.id,
+    //     };
+    //   });
+    // }
 
     default:
       return state;
