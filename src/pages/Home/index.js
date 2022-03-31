@@ -22,7 +22,7 @@ const Home = () => {
       : services;
 
   const renderItem = ({ item }) => {
-    return <Service services={item} key={item} />;
+    return <Service service={item} key={item} />;
   };
 
   return (
