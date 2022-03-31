@@ -22,7 +22,7 @@ const Home = () => {
       : services;
 
   const renderItem = ({ item }) => {
-    return <Service service={item} key={item} />;
+    return <Service service={item} key={item.id} />;
   };
 
   return (
@@ -36,7 +36,7 @@ const Home = () => {
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
-      {/* <ModalScheduling /> */}
+      <ModalScheduling />
       {/* <ModalSpecialists /> */}
     </>
   );

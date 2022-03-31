@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { updateScheduling } from "../../store/modules/salao/actions";
 
 const Service = ({ service }) => {
-  // console.log(service)
   const dispatch = useDispatch();
 
   const currencyFormat = (num) => {
@@ -18,7 +17,6 @@ const Service = ({ service }) => {
       hasPadding
       align="center"
       background="light"
-      onPress={() => dispatch(updateScheduling({ modalAgendamento: true }))}
     >
       <Image
         source={{ uri: service.image }}
@@ -43,6 +41,7 @@ const Service = ({ service }) => {
           icon="clock-check-outline"
           background="success"
           mode="contained"
+          onPress={() => dispatch(updateScheduling(service))}
         >
           AGENDAR
         </Button>
