@@ -18,7 +18,7 @@ const INITIAL_STATE = {
     inputFiltro: "",
     inputFiltroFoco: false,
     modalEspecialista: false,
-    modalAgendamento: 0,
+    modalAgendamento: false,
     agendamentoLoading: false,
   },
 };
@@ -38,18 +38,19 @@ export default function salao(state = INITIAL_STATE, action) {
     case types.UPDATE_FORM: {
       return {
         ...state,
-        form: {
-          ...state.form,
-          ...action.payload,
-        },
+        form: { ...state.form, ...action.payload },
       };
+    }
 
-      // *** with the lib 'immer'
-      // case types.UPDATE_FORM: {
-      //   return produce(state, (draft) => {
-      //     draft.form = { ...state.form, ...action.payload };
-      //   });
-      // }
+    // *** with the lib 'immer'
+    // case types.UPDATE_FORM: {
+    //   return produce(state, (draft) => {
+    //     draft.form = { ...state.form, ...action.payload };
+    //   });
+    // }
+
+    case types.UPDATE_SCHEDULING: {
+      return { ...state, form: { ...state.form, ...action.payload } };
     }
 
     default:
