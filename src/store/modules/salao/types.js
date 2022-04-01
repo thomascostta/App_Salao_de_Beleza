@@ -4,6 +4,7 @@ const types = {
   UPDATE_SCHEDULE: "@salao/UPDATE_SCHEDULE",
   UPDATE_SCHEDULING: "@salao/UPDATE_SCHEDULING",
   FILTER_SCHEDULE: "@salao/FILTER_SCHEDULE",
+  DATA_SCHEDULING: "@salao/DATA_SCHEDULING",
 };
 
 export default types;
