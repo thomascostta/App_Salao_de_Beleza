@@ -12,7 +12,8 @@ const INITIAL_STATE = {
     salaoId: consts.salaoId,
     servicoId: null,
     colaboradorId: null,
-    data: null,
+    date: null,
+    timeOfDay: null,
   },
   form: {
     inputFiltro: "",
@@ -59,6 +60,16 @@ export default function salao(state = INITIAL_STATE, action) {
         agendamento: {
           ...state.agendamento,
           servicoId: action.payload.id,
+        },
+      };
+    }
+
+    case types.DATA_SCHEDULING: {
+      return {
+        ...state,
+        agendamento: {
+          ...state.agendamento,
+          date: action.payload
         },
       };
     }
