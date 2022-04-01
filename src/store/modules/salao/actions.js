@@ -19,3 +19,7 @@ export function updateSchedule(payload) {
 export function filterSchedule(payload) {
   return { type: types.FILTER_SCHEDULE, payload };
 }
+
+export function dateScheduling(payload) {
+  return { type: types.DATA_SCHEDULING, payload };
+}
