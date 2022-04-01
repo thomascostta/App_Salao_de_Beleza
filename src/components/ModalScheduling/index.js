@@ -11,8 +11,15 @@ import { Button, Box } from "../../styles";
 import { useSelector } from "react-redux";
 
 const ModalScheduling = () => {
-  const { form, agendamento, services } = useSelector((state) => state.salao);
+  const { form, agendamento, services, agenda } = useSelector(
+    (state) => state.salao
+  );
   const modalRef = useRef(null);
+
+  const serviceArray = services.filter(
+    (item) => item.id === agendamento.servicoId
+  );
+  const [service] = serviceArray; // Destructuring Array
 
   return (
     <Modal
@@ -33,8 +40,12 @@ const ModalScheduling = () => {
           stickyHeaderIndices={[0]} //Fixação de um elemento do Array
         >
           <ModalHeader />
-          <Resume agendamento={agendamento} services={services}/>
-          <DateTime />
+          <Resume service={service} />
+          <DateTime
+            service={service}
+            services={services}
+            agendamento={agendamento}
+          />
           <SpecialistsPicker />
           <PaymentPicker />
           <Box hasPadding>
