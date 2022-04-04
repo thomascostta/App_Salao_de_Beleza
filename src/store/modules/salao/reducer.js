@@ -75,6 +75,13 @@ export default function salao(state = INITIAL_STATE, action) {
       };
     }
 
+    case types.COLLABORATORS: {
+      return {
+        ...state,
+        form: { ...state.form, ...action.payload },
+      };
+    }
+
     // *** with the lib 'immer'
     // case types.UPDATE_SCHEDULING: {
     //   return produce(state, (draft) => {
