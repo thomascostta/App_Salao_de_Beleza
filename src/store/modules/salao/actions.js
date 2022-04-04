@@ -29,3 +29,7 @@ export function dateScheduling(date, timeOfDay) {
     },
   };
 }
+
+export function updateCollaboratos(payload) {
+  return { type: types.COLLABORATORS, payload };
+}
