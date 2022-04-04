@@ -69,7 +69,8 @@ export default function salao(state = INITIAL_STATE, action) {
         ...state,
         agendamento: {
           ...state.agendamento,
-          date: action.payload
+          ...action.payload.date,
+          ...action.payload.timeOfDay,
         },
       };
     }
