@@ -5,8 +5,12 @@ import { dataTime } from "../../data/dataTime";
 import util from "../../util";
 import theme from "../../styles/theme.json";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { useDispatch } from "react-redux";
+import { dateScheduling } from "../../store/modules/salao/actions";
 
 const DateTime = () => {
+  const dispatch = useDispatch();
+
   const [selectDate, setSelectDate] = useState();
   const [selectTime, setSelectTime] = useState();
   const [selectedYear, setSelectedYear] = useState(0);
@@ -57,8 +61,10 @@ const DateTime = () => {
 
       newListDays.push({
         numberDays: i,
-        month: months[d.getMonth()],
+        monthName: months[d.getMonth()],
+        monthNumber: d.getMonth(),
         weekday: days[d.getDay()],
+        year: d.getFullYear(),
         // status: availability.length > 0 ? true : false;
       });
     }
@@ -69,10 +75,17 @@ const DateTime = () => {
   }, [selectedMonth, selectedYear]);
 
   const selectButtom = (item) => {
-    setSelectDate(item);
+    const selectionHaircutSchedule = new Date(
+      item.year,
+      item.monthNumber,
+      item.numberDays
+    );
+    dispatch(dateScheduling({date: selectionHaircutSchedule}));
+    setSelectDate(item.numberDays);
   };
 
   const selectButtomTime = (item) => {
+    dispatch(dateScheduling({ timeOfDay: item }));
     setSelectTime(item);
   };
   const handleLeftDateClick = () => {
@@ -136,7 +149,7 @@ const DateTime = () => {
                 ? theme.colors.primary
                 : theme.colors.light
             }
-            onPress={() => selectButtom(item.numberDays)}
+            onPress={() => selectButtom(item)}
           >
             <Box
               direction="column"
@@ -163,7 +176,7 @@ const DateTime = () => {
                 small
                 color={item.numberDays === selectDate ? "light" : undefined}
               >
-                {item.month}
+                {item.monthName}
               </Text>
             </Box>
           </Touchable>
