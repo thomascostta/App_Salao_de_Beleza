@@ -37,7 +37,7 @@ const Home = () => {
         keyExtractor={(item, index) => index.toString()}
       />
       <ModalScheduling />
-      {/* <ModalSpecialists /> */}
+      <ModalSpecialists />
     </>
   );
 };
