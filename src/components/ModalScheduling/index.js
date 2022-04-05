@@ -11,7 +11,7 @@ import { Button, Box } from "../../styles";
 import { useSelector } from "react-redux";
 
 const ModalScheduling = () => {
-  const { form, agendamento, services, agenda } = useSelector(
+  const { form, agendamento, services } = useSelector(
     (state) => state.salao
   );
   const modalRef = useRef(null);
@@ -42,9 +42,9 @@ const ModalScheduling = () => {
           <ModalHeader />
           <Resume service={service} />
           <DateTime
-            service={service}
-            services={services}
-            agendamento={agendamento}
+            // service={service}
+            // services={services}
+            // agendamento={agendamento}
           />
           <SpecialistsPicker />
           <PaymentPicker />
@@ -60,7 +60,7 @@ const ModalScheduling = () => {
             </Button>
           </Box>
         </ScrollView>
-        {/* <ModalSpecialists /> */}
+        <ModalSpecialists />
       </>
     </Modal>
   );
