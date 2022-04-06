@@ -75,10 +75,17 @@ export default function salao(state = INITIAL_STATE, action) {
       };
     }
 
-    case types.COLLABORATORS: {
+    case types.UPDATE_COLLABORATORS: {
       return {
         ...state,
-        form: { ...state.form, ...action.payload },
+        colaboradores: {...state.colaboradores, ...action.payload}
+      };
+    }
+
+    case types.MODAL_SPECIALIST: {
+      return {
+        ...state,
+        form: { ...state.form, modalEspecialista: action.payload },
       };
     }
 
