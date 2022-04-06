@@ -11,7 +11,7 @@ import { Button, Box } from "../../styles";
 import { useSelector } from "react-redux";
 
 const ModalScheduling = () => {
-  const { form, agendamento, services } = useSelector(
+  const { form, agendamento, services, colaboradores } = useSelector(
     (state) => state.salao
   );
   const modalRef = useRef(null);
@@ -42,11 +42,8 @@ const ModalScheduling = () => {
           <ModalHeader />
           <Resume service={service} />
           <DateTime
-            // service={service}
-            // services={services}
-            // agendamento={agendamento}
           />
-          <SpecialistsPicker />
+          <SpecialistsPicker colaboradores={colaboradores} />
           <PaymentPicker />
           <Box hasPadding>
             <Button
