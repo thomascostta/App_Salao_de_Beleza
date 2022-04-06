@@ -31,5 +31,9 @@ export function dateScheduling(date, timeOfDay) {
 }
 
 export function updateCollaboratos(payload) {
-  return { type: types.COLLABORATORS, payload };
+  return { type: types.UPDATE_COLLABORATORS, payload };
+}
+
+export function updateModalSpecialist(payload) {
+  return { type: types.MODAL_SPECIALIST, payload };
 }
