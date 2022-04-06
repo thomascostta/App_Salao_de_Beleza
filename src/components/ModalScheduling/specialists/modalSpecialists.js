@@ -4,27 +4,31 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Box, Text, Touchable } from "../../../styles";
 import dataSpecialist from "../../../data/dataSpecialist.json";
 import theme from "../../../styles/theme.json";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  updateModalSpecialist,
+  updateCollaboratos,
+} from "../../../store/modules/salao/actions";
 
 const ModalSpecialists = () => {
+  const dispatch = useDispatch();
   const { form } = useSelector((state) => state.salao);
-  const isOpenState = form.modalEspecialista;
+  const isVisibleState = form.modalEspecialista;
   const [borderColor, setBorderColor] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
 
   const toggleModal = () => {
-    setModalVisible(!modalVisible);
-  }
+    dispatch(updateModalSpecialist(false));
+  };
+
+  const selectedSpecialists = (item) => {
+    setBorderColor(item);
+    dispatch(updateCollaboratos(item));
+    setTimeout(function(){ toggleModal()}, 1000);
+   
+  };
+
   return (
-    <Modal
-      visible={true}
-      onRequestClose={toggleModal}
-      animationInTiming={200}
-      animationOutTiming={200}
-      animationType="slide"
-      transparent={true}
-     
-    >
+    <Modal visible={isVisibleState} animationType="fade" transparent={true}>
       <View
         style={{
           flex: 1,
@@ -53,16 +57,14 @@ const ModalSpecialists = () => {
               elevation: 10,
             }}
           >
-            <Box hasPadding direction="column" >
+            <Box hasPadding direction="column">
               <View style={{ flexDirection: "row" }}>
                 <View style={{ flex: 7 }}>
                   <Text bold color="dark">
                     Selecione o Especialista
                   </Text>
                 </View>
-                <Touchable 
-                onPress={(i) => {console.log('ta pegando')}}
-                style={{ flex: 1 }}>
+                <Touchable onPress={toggleModal} style={{ flex: 1 }}>
                   <Icon name="close" color={theme.colors.dark} size={30} />
                 </Touchable>
               </View>
@@ -76,7 +78,7 @@ const ModalSpecialists = () => {
                       direction="column"
                       align="center"
                       spacing="5px"
-                      onPress={() => setBorderColor(item)}
+                      onPress={() => selectedSpecialists(item)}
                     >
                       <Image
                         style={{
