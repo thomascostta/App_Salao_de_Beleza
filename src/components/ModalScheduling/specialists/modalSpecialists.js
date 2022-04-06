@@ -23,8 +23,9 @@ const ModalSpecialists = () => {
   const selectedSpecialists = (item) => {
     setBorderColor(item);
     dispatch(updateCollaboratos(item));
-    setTimeout(function(){ toggleModal()}, 1000);
-   
+    setTimeout(function () {
+      toggleModal();
+    }, 1000);
   };
 
   return (
