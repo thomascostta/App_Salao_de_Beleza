@@ -1,24 +1,39 @@
 import React from "react";
 import { Image, View } from "react-native";
+import { useDispatch } from "react-redux";
 import { Box, Text, Cover, Button } from "../../../styles";
-import dataSpecialist from "../../../data/dataSpecialist.json";
+import { data } from "../../../data/dataSpecialist.json";
 import theme from "../../../styles/theme.json";
+import { updateModalSpecialist } from "../../../store/modules/salao/actions";
 
-const SpecialistsPicker = () => {
+const SpecialistsPicker = ({ colaboradores }) => {
+
+  const dispatch = useDispatch();
+
+  const changeCollaborators = () => {
+    dispatch(updateModalSpecialist(true));
+  };
+
   return (
     <>
       <Text bold color="dark" spacing="20px 20px 0 20px">
-        Gostaria de trocar o(a) especialista?
+        Selecione um especialista?
       </Text>
       <Box hasPadding>
         <Box align="center">
-          <Cover
-            width="45px"
-            height="45px"
-            circle
-            image="https://a-static.mlcdn.com.br/618x463/quadro-decorativo-barbearia-barber-shop-cabeleireiro-com-moldura-rc005-vital-printer/vitalprinter/b9ea379eca6911eb95144201ac18500e/119299fd3dbda7b5409ad08021735d5f.jpg"
+          <Image
+            source={{ uri: colaboradores?.picture?.large }}
+            style={{
+              width: 45,
+              height: 45,
+              borderRadius: 50,
+              borderWidth: 2,
+              marginHorizontal: 10,
+            }}
           />
-          <Text small>Alessandro Guedes</Text>
+          <Text small bold>
+            {colaboradores?.name?.first ? colaboradores?.name?.first : 'Vazio'}
+          </Text>
         </Box>
         <Box>
           <Button
@@ -28,8 +43,9 @@ const SpecialistsPicker = () => {
             border
             mode="contained"
             block
+            onPress={changeCollaborators}
           >
-            Trocar especialista
+            Escolher cabeleleiro
           </Button>
         </Box>
       </Box>
