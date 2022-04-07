@@ -37,3 +37,7 @@ export function updateCollaboratos(payload) {
 export function updateModalSpecialist(payload) {
   return { type: types.MODAL_SPECIALIST, payload };
 }
+
+export function updatePaymentMethod(payload) {
+  return { type: types.PAYMENT_METHOD, payload };
+}
