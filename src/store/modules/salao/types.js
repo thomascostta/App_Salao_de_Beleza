@@ -7,6 +7,7 @@ const types = {
   DATA_SCHEDULING: "@salao/DATA_SCHEDULING",
   UPDATE_COLLABORATORS: "@salao/COLLABORATORS",
   MODAL_SPECIALIST: "@salao/MODAL_SPECIALIST",
+  PAYMENT_METHOD: "@salao/PAYMENT_METHOD",
 };
 
 export default types;
