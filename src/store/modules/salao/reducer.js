@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   services: [...dataHaircut],
   agenda: [],
   colaboradores: [],
+  payment: [],
   agendamento: {
     clienteId: consts.clienteId,
     salaoId: consts.salaoId,
@@ -78,7 +79,7 @@ export default function salao(state = INITIAL_STATE, action) {
     case types.UPDATE_COLLABORATORS: {
       return {
         ...state,
-        colaboradores: {...state.colaboradores, ...action.payload}
+        colaboradores: { ...state.colaboradores, ...action.payload },
       };
     }
 
@@ -86,6 +87,13 @@ export default function salao(state = INITIAL_STATE, action) {
       return {
         ...state,
         form: { ...state.form, modalEspecialista: action.payload },
+      };
+    }
+
+    case types.PAYMENT_METHOD: {
+      return {
+        ...state,
+        payment: {...state.payment, ...action.payload},
       };
     }
 
