@@ -14,6 +14,7 @@ const ModalScheduling = () => {
   const { form, agendamento, services, colaboradores } = useSelector(
     (state) => state.salao
   );
+  const isVisibleModal = form.modalAgendamento;
   const modalRef = useRef(null);
 
   const serviceArray = services.filter(
@@ -24,7 +25,7 @@ const ModalScheduling = () => {
   return (
     <Modal
       ref={modalRef}
-      visible={form.modalAgendamento}
+      visible={isVisibleModal}
       style={{
         width: "100%",
         height: "100%",
