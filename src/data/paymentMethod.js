@@ -1,7 +1,7 @@
 export const paymentByApp = [
-  { id: '1_App', name: "Cartão de Crédito", paymentLocation: "App" },
-  { id: '2_App', name: "Cartão de Débito", paymentLocation: "App" },
-  { id: '3_App', name: "PIX", paymentLocation: "App" }
+  { id: '1_App', name: "Cartão de Crédito", paymentLocation: "App_CredCard" },
+  { id: '2_App', name: "Cartão de Débito", paymentLocation: "App_DebitCard" },
+  // { id: '3_App', name: "PIX", paymentLocation: "App" }
 ];
 
 export const paymentOnTheSpot = [
