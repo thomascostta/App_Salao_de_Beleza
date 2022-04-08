@@ -8,6 +8,7 @@ const types = {
   UPDATE_COLLABORATORS: "@salao/COLLABORATORS",
   MODAL_SPECIALIST: "@salao/MODAL_SPECIALIST",
   PAYMENT_METHOD: "@salao/PAYMENT_METHOD",
+  MODAL_PAYMENT_METHOD: "@salao/MODAL_PAYMENT_METHOD",
 };
 
 export default types;
