@@ -6,17 +6,22 @@ import util from "../../../util";
 import { Text, Touchable } from "../../../styles";
 import { paymentByApp, paymentOnTheSpot } from "../../../data/paymentMethod";
 import { useDispatch } from "react-redux";
-import { updatePaymentMethod } from "../../../store/modules/salao/actions";
-import Checkout from "../checkout";
+import { updatePaymentMethod, updateModalPaymentMethod } from "../../../store/modules/salao/actions";
 
 const PaymentPicker = () => {
   const dispatch = useDispatch();
   const [selectPayment, setSelectPayment] = useState();
-  console.log("selectPayment  ", selectPayment);
 
   const selectPaymentMethod = (item) => {
     dispatch(updatePaymentMethod(item));
+    dispatch(updateModalPaymentMethod(true));
     setSelectPayment(item.id);
+
+    // if(item.paymentLocation === 'App_CredCard') {
+    //   return <ModalPayment visibleModalPayment={true}/>
+    // } if (item.paymentLocation === 'App_DebitCard') {
+    //   return <ModalPayment visibleModalPayment={true}/>
+    // }
   };
 
   return (
@@ -34,7 +39,7 @@ const PaymentPicker = () => {
       <>
         {paymentByApp.map((item) => {
           return (
-            <View style={{ marginTop: 10 }} key={item.id}>
+            <View style={{ marginTop: 10 }} key={item.id.toString()}>
               <Touchable
                 height="30px"
                 rounded="5px"
@@ -71,7 +76,7 @@ const PaymentPicker = () => {
       <>
         {paymentOnTheSpot.map((item) => {
           return (
-            <View style={{ marginTop: 10 }} key={item.id}>
+            <View style={{ marginTop: 10 }} key={item.id.toString()}>
               <Touchable
                 height="30px"
                 rounded="5px"
