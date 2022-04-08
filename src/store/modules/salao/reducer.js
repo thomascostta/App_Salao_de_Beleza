@@ -98,6 +98,13 @@ export default function salao(state = INITIAL_STATE, action) {
       };
     }
 
+    case types.MODAL_PAYMENT_METHOD: {
+      return {
+        ...state,
+        form: { ...state.form, modalPayment: action.payload}
+      }
+    }
+
     // *** with the lib 'immer'
     // case types.UPDATE_SCHEDULING: {
     //   return produce(state, (draft) => {
