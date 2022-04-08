@@ -13,7 +13,10 @@ E outros.
 
 ## 💻 Status
 
-![Captura de tela 2022-03-14 18:39:48](https://user-images.githubusercontent.com/82541529/158265940-736cff0c-608f-43c9-bb9c-1610d0b0fb05.png)
+
+
+https://user-images.githubusercontent.com/82541529/162527561-5920ca06-ae1a-4cb4-be51-963fa841aa42.mp4
+
 
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
