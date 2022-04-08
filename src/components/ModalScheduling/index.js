@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Dimensions, View, Modal } from "react-native";
+import { Modal } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import ModalHeader from "./header";
 import Resume from "./resume";
@@ -7,6 +7,7 @@ import DateTime from "./dateTime";
 import SpecialistsPicker from "./specialists";
 import ModalSpecialists from "./specialists/modalSpecialists";
 import PaymentPicker from "../ModalScheduling/payment";
+import ModalPayment from "../ModalScheduling/payment/ModalPayment";
 import { Button, Box } from "../../styles";
 import { useSelector } from "react-redux";
 
@@ -15,6 +16,7 @@ const ModalScheduling = () => {
     (state) => state.salao
   );
   const isVisibleModal = form.modalAgendamento;
+  const visibleModalPayment = form.modalPayment;
   const modalRef = useRef(null);
 
   const serviceArray = services.filter(
@@ -42,8 +44,7 @@ const ModalScheduling = () => {
         >
           <ModalHeader />
           <Resume service={service} />
-          <DateTime
-          />
+          <DateTime />
           <SpecialistsPicker colaboradores={colaboradores} />
           <PaymentPicker />
           <Box hasPadding>
@@ -59,6 +60,7 @@ const ModalScheduling = () => {
           </Box>
         </ScrollView>
         <ModalSpecialists />
+        <ModalPayment visibleModalPayment={visibleModalPayment} />
       </>
     </Modal>
   );
