@@ -41,3 +41,7 @@ export function updateModalSpecialist(payload) {
 export function updatePaymentMethod(payload) {
   return { type: types.PAYMENT_METHOD, payload };
 }
+
+export function updateModalPaymentMethod(payload) {
+  return { type: types.MODAL_PAYMENT_METHOD, payload };
+}
