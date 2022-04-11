@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import theme from "../../../styles/theme.json";
 import util from "../../../util";
 import { Text, Touchable } from "../../../styles";
 import { paymentByApp, paymentOnTheSpot } from "../../../data/paymentMethod";
 import { useDispatch } from "react-redux";
-import { updatePaymentMethod, updateModalPaymentMethod } from "../../../store/modules/salao/actions";
+import {
+  updatePaymentMethod,
+  updateModalPaymentMethod,
+} from "../../../store/modules/salao/actions";
 
 const PaymentPicker = () => {
   const dispatch = useDispatch();
   const [selectPayment, setSelectPayment] = useState();
 
-  const selectPaymentMethod = (item) => {
-    dispatch(updatePaymentMethod(item));
+  const selectPaymentMethodWithModal = (item) => {
+    dispatch(updatePaymentMethod({ cardType: item }));
     dispatch(updateModalPaymentMethod(true));
     setSelectPayment(item.id);
+  };
 
-    // if(item.paymentLocation === 'App_CredCard') {
-    //   return <ModalPayment visibleModalPayment={true}/>
-    // } if (item.paymentLocation === 'App_DebitCard') {
-    //   return <ModalPayment visibleModalPayment={true}/>
-    // }
+  const selectPaymentMethodWithoutModal = (item) => {
+    dispatch(updatePaymentMethod({ cardType: item, cardData: null }));
+    setSelectPayment(item.id);
   };
 
   return (
@@ -47,7 +48,7 @@ const PaymentPicker = () => {
                 border={`1px solid ${util.toAlpha(theme.colors.muted, 40)}`}
                 align="center"
                 hasPadding
-                onPress={() => selectPaymentMethod(item)}
+                onPress={() => selectPaymentMethodWithModal(item)}
               >
                 <View
                   style={[
@@ -84,7 +85,7 @@ const PaymentPicker = () => {
                 border={`1px solid ${util.toAlpha(theme.colors.muted, 40)}`}
                 align="center"
                 hasPadding
-                onPress={() => selectPaymentMethod(item)}
+                onPress={() => selectPaymentMethodWithoutModal(item)}
               >
                 <View
                   style={[
