@@ -12,7 +12,7 @@ import { Button, Box } from "../../styles";
 import { useSelector } from "react-redux";
 
 const ModalScheduling = () => {
-  const { form, agendamento, services, colaboradores } = useSelector(
+  const { form, agendamento, services, colaboradores, payment } = useSelector(
     (state) => state.salao
   );
   const isVisibleModal = form.modalAgendamento;
@@ -60,7 +60,10 @@ const ModalScheduling = () => {
           </Box>
         </ScrollView>
         <ModalSpecialists />
-        <ModalPayment visibleModalPayment={visibleModalPayment} />
+        <ModalPayment
+          visibleModalPayment={visibleModalPayment}
+          payment={payment}
+        />
       </>
     </Modal>
   );
