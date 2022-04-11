@@ -3,11 +3,11 @@
 ## 🚀 O Projeto 
 Com objetivo de estudos, este projeto terá a implementação do React Native CLI utilizando:
 - Componente Funcional com Hooks
-- Redux Persist
+- Redux
 - styled-component
 - async-storage
 - react-native-paper
-- react-native-gesture-handler
+- react-hook-form
 E outros.
 
 
