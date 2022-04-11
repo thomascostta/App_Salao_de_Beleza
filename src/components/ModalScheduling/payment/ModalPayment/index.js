@@ -4,7 +4,10 @@ import Modal from "react-native-modal";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useDispatch } from "react-redux";
 import theme from "../../../../styles/theme.json";
-import { updateModalPaymentMethod } from "../../../../store/modules/salao/actions";
+import {
+  updateModalPaymentMethod,
+  updatePaymentMethod,
+} from "../../../../store/modules/salao/actions";
 import {
   Box,
   Title,
@@ -14,20 +17,37 @@ import {
   Touchable,
 } from "../../../../styles/index";
 
-export default function ModalPayment({ visibleModalPayment }) {
-  const { width, height } = Dimensions.get("window");
+export default function ModalPayment({ visibleModalPayment, payment }) {
   const dispatch = useDispatch();
+  const typePayment = payment.cardType?.paymentLocation;
+  const namePayment = payment.cardType?.name;
+  const { width, height } = Dimensions.get("window");
   const [numberCard, setNumberCard] = useState();
   const [expiration, setExpiration] = useState();
   const [verificationCode, setVerificationCode] = useState();
+  const [cardName, setCardName] = useState();
 
-  const toggleModal = () => {
-    dispatch(updateModalPaymentMethod(false))
-    };
-    console.log('ModalPayment   -> visibleModalPayment',visibleModalPayment)
+  const toggleModalClose = () => {
+    dispatch(updateModalPaymentMethod(false));
+  };
+
+  const dispatchDateCard = () => {
+    dispatch(updateModalPaymentMethod(false));
+    dispatch(
+      updatePaymentMethod({
+        cardData: {
+          typeCard: typePayment,
+          numberCard: numberCard,
+          expiration: expiration,
+          verificationCode: verificationCode,
+          cardName: cardName,
+        },
+      })
+    );
+  };
 
   return (
-    <Modal isVisible={visibleModalPayment} onBackdropPress={toggleModal}>
+    <Modal isVisible={visibleModalPayment} onBackdropPress={toggleModalClose}>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View
           style={{
@@ -45,10 +65,10 @@ export default function ModalPayment({ visibleModalPayment }) {
                   size={25}
                   color={theme.colors.primary}
                 />
-                <Title small> Cartão de Crédito</Title>
+                <Title small>{namePayment}</Title>
               </Box>
               <Box flexBox="1">
-                <Touchable style={{ flex: 1 }} onPress={toggleModal}>
+                <Touchable style={{ flex: 1 }} onPress={toggleModalClose}>
                   <Icon name="close" color={theme.colors.primary} size={35} />
                 </Touchable>
               </Box>
@@ -60,7 +80,7 @@ export default function ModalPayment({ visibleModalPayment }) {
               </Text>
               <TextInput
                 value={numberCard}
-                onChangeText={(text) => setNumberCard(text)}
+                onChangeText={(number) => setNumberCard(number)}
                 placeholder={"0000 0000 0000 0000"}
                 keyboardType={"numeric"}
               ></TextInput>
@@ -72,7 +92,7 @@ export default function ModalPayment({ visibleModalPayment }) {
                 </Text>
                 <TextInput
                   value={expiration}
-                  onChangeText={(text) => setExpiration(text)}
+                  onChangeText={(number) => setExpiration(number)}
                   placeholder={"01/30"}
                   keyboardType={"numeric"}
                 ></TextInput>
@@ -83,7 +103,7 @@ export default function ModalPayment({ visibleModalPayment }) {
                 </Text>
                 <TextInput
                   value={verificationCode}
-                  onChangeText={(text) => setVerificationCode(text)}
+                  onChangeText={(number) => setVerificationCode(number)}
                   placeholder={"000"}
                   keyboardType={"numeric"}
                 ></TextInput>
@@ -94,8 +114,8 @@ export default function ModalPayment({ visibleModalPayment }) {
                 Nome impresso no cartão
               </Text>
               <TextInput
-                value={numberCard}
-                onChangeText={(text) => setNumberCard(text)}
+                value={cardName}
+                onChangeText={(text) => setCardName(text)}
                 placeholder={"NOME"}
               ></TextInput>
             </Box>
@@ -108,7 +128,7 @@ export default function ModalPayment({ visibleModalPayment }) {
               align="center"
               flexBox="0.5"
             >
-              <Button>
+              <Button onPress={dispatchDateCard}>
                 <Text bold>Salvar</Text>
               </Button>
             </Box>
