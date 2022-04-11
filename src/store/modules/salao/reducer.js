@@ -94,15 +94,15 @@ export default function salao(state = INITIAL_STATE, action) {
     case types.PAYMENT_METHOD: {
       return {
         ...state,
-        payment: {...state.payment, ...action.payload},
+        payment: { ...state.payment, ...action.payload },
       };
     }
 
     case types.MODAL_PAYMENT_METHOD: {
       return {
         ...state,
-        form: { ...state.form, modalPayment: action.payload}
-      }
+        form: { ...state.form, modalPayment: action.payload },
+      };
     }
 
     // *** with the lib 'immer'
