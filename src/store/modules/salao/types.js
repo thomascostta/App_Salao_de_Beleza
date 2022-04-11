@@ -9,6 +9,7 @@ const types = {
   MODAL_SPECIALIST: "@salao/MODAL_SPECIALIST",
   PAYMENT_METHOD: "@salao/PAYMENT_METHOD",
   MODAL_PAYMENT_METHOD: "@salao/MODAL_PAYMENT_METHOD",
+  CARD_DATA: '@salao/CARD_DATA',
 };
 
 export default types;
