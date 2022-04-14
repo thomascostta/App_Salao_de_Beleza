@@ -72,7 +72,7 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
           numberCard: item.numberCard,
           expiration: item.expiration,
           verificationCode: item.verificationCode,
-          cardName: item.cardName,
+          cardName: item.cardName.toUpperCase(),
         },
       })
     );
@@ -122,6 +122,11 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
                 name={name}
                 onFocus={() => setOnFocusNumberCard(true)}
                 onBlur={() => setOnFocusNumberCard(false)}
+                
+                
+                
+                
+                
                 onChangeText={(number) => setValue("numberCard", number)}
                 placeholder={"0000 0000 0000 0000"}
                 keyboardType={"numeric"}
