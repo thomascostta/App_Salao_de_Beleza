@@ -7,8 +7,9 @@ Com objetivo de estudos, este projeto terá a implementação do React Native CL
 - styled-component
 - async-storage
 - react-native-paper
-- react-hook-form
-E outros.
+- react-hook-form + Yup
+- Text- InputMask
+- E outros.
 
 
 ## 💻 Status
