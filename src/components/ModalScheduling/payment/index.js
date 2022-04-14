@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
 import theme from "../../../styles/theme.json";
 import util from "../../../util";
 import { Text, Touchable } from "../../../styles";
 import { paymentByApp, paymentOnTheSpot } from "../../../data/paymentMethod";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   updatePaymentMethod,
   updateModalPaymentMethod,
@@ -12,17 +12,17 @@ import {
 
 const PaymentPicker = () => {
   const dispatch = useDispatch();
-  const [selectPayment, setSelectPayment] = useState();
+  const selectPayment = useSelector(
+    (state) => state.salao.payment?.cardType?.id
+  );
 
   const selectPaymentMethodWithModal = (item) => {
     dispatch(updatePaymentMethod({ cardType: item }));
     dispatch(updateModalPaymentMethod(true));
-    setSelectPayment(item.id);
   };
 
   const selectPaymentMethodWithoutModal = (item) => {
     dispatch(updatePaymentMethod({ cardType: item, cardData: null }));
-    setSelectPayment(item.id);
   };
 
   return (
@@ -67,13 +67,11 @@ const PaymentPicker = () => {
           );
         })}
       </>
-
       <View style={{ marginTop: 20 }}>
         <Text bold color="dark">
           Pague na hora
         </Text>
       </View>
-
       <>
         {paymentOnTheSpot.map((item) => {
           return (
