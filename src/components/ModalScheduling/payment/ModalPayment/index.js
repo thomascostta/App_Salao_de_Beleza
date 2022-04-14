@@ -58,6 +58,7 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
 
   const toggleModalClose = () => {
     dispatch(updateModalPaymentMethod(false));
+    dispatch(updatePaymentMethod({ cardType: null, cardData: null }));
   };
 
   const onSubmit = (item) => {
