@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Dimensions, TextInput, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { TextInputMask } from "react-native-masked-text";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 // import { ErrorMessage } from "@hookform/error-message";
@@ -30,11 +31,6 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
       .typeError("Apenas números sem os pontos")
       .integer()
       .required("Obrigatório"),
-    expiration: yup
-      .number()
-      .typeError("Apenas números sem os pontos")
-      .integer()
-      .required("Obrigatório"),
     verificationCode: yup
       .number()
       .typeError("Apenas números sem os pontos")
@@ -47,6 +43,7 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
     register,
     setValue,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -113,20 +110,25 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
               <Text margimBottom="0" bold>
                 Número do Cartão
               </Text>
-              <TextInput
+              <TextInputMask
+                refInput={ref}
                 style={[
                   styles.input,
                   { borderColor: onFocusNumberCard ? "blue" : "#fff" },
                 ]}
-                ref={ref}
-                name={name}
+                type={"credit-card"}
+                options={{
+                  obfuscated: false,
+                  issuer: "visa-or-mastercard",
+                }}
+                value={watch("numberCard")}
                 onFocus={() => setOnFocusNumberCard(true)}
                 onBlur={() => setOnFocusNumberCard(false)}
+                name={name}
                 onChangeText={(number) => setValue("numberCard", number)}
                 placeholder={"0000 0000 0000 0000"}
                 keyboardType={"numeric"}
-                maxLength={16}
-              ></TextInput>
+              />
               {errors.numberCard && (
                 <Text small color="danger">
                   {errors.numberCard?.message}
@@ -149,20 +151,24 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
                 <Text margimBottom="0" bold>
                   Validade
                 </Text>
-                <TextInput
+                <TextInputMask
+                  refInput={ref}
                   style={[
                     styles.input,
                     { borderColor: onFocusExpiration ? "blue" : "#fff" },
                   ]}
+                  type={"datetime"}
+                  options={{
+                    format: "MM/YY",
+                  }}
+                  value={watch("expiration")}
                   onFocus={() => setOnFocusExpiration(true)}
                   onBlur={() => setOnFocusExpiration(false)}
-                  ref={ref}
                   name={name}
                   onChangeText={(number) => setValue("expiration", number)}
                   placeholder={"01/30"}
                   keyboardType={"numeric"}
-                  maxLength={4}
-                ></TextInput>
+                />
                 {errors.expiration && (
                   <Text small color="danger">
                     {errors.expiration?.message}
