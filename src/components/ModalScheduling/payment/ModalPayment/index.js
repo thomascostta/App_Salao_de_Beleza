@@ -122,11 +122,6 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
                 name={name}
                 onFocus={() => setOnFocusNumberCard(true)}
                 onBlur={() => setOnFocusNumberCard(false)}
-                
-                
-                
-                
-                
                 onChangeText={(number) => setValue("numberCard", number)}
                 placeholder={"0000 0000 0000 0000"}
                 keyboardType={"numeric"}
@@ -194,7 +189,6 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
                   placeholder={"000"}
                   keyboardType={"numeric"}
                   maxLength={3}
-                  autoCapitalize={"characters"}
                 ></TextInput>
                 {errors.verificationCode && (
                   <Text small color="danger">
@@ -220,6 +214,7 @@ export default function ModalPayment({ visibleModalPayment, payment }) {
                 onChangeText={(text) => setValue("cardName", text)}
                 placeholder={"NOME"}
                 maxLength={30}
+                autoCapitalize="characters"
               ></TextInput>
               {errors.cardName && (
                 <Text small color="danger">
