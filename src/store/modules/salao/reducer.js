@@ -9,8 +9,7 @@ const INITIAL_STATE = {
   colaboradores: [],
   payment: [],
   agendamento: {
-    clienteId: consts.clienteId,
-    salaoId: consts.salaoId,
+    // clienteId: consts.clienteId,
     servicoId: null,
     colaboradorId: null,
     date: null,
@@ -65,6 +64,16 @@ export default function salao(state = INITIAL_STATE, action) {
         },
       };
     }
+    // *** with the lib 'immer'
+    // case types.UPDATE_SCHEDULING: {
+    //   return produce(state, (draft) => {
+    //     draft.form.modalAgendamento = true;
+    //     draft.agendamento = {
+    //       ...state.agendamento,
+    //       servicoId: action.payload.id,
+    //     };
+    //   });
+    // }
 
     case types.DATA_SCHEDULING: {
       return {
@@ -81,6 +90,7 @@ export default function salao(state = INITIAL_STATE, action) {
       return {
         ...state,
         colaboradores: { ...state.colaboradores, ...action.payload },
+        agendamento: { ...state.agendamento, colaboradorId: action.payload.login.uuid },
       };
     }
 
@@ -105,16 +115,6 @@ export default function salao(state = INITIAL_STATE, action) {
       };
     }
 
-    // *** with the lib 'immer'
-    // case types.UPDATE_SCHEDULING: {
-    //   return produce(state, (draft) => {
-    //     draft.form.modalAgendamento = true;
-    //     draft.agendamento = {
-    //       ...state.agendamento,
-    //       servicoId: action.payload.id,
-    //     };
-    //   });
-    // }
 
     default:
       return state;
