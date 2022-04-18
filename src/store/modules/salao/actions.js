@@ -20,12 +20,13 @@ export function filterSchedule(payload) {
   return { type: types.FILTER_SCHEDULE, payload };
 }
 
-export function dateScheduling(date, timeOfDay) {
+export function dateScheduling(date, timeOfDay, dayOfWeek) {
   return {
     type: types.DATA_SCHEDULING,
     payload: {
       date,
       timeOfDay,
+      dayOfWeek,
     },
   };
 }
