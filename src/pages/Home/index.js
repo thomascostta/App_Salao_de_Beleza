@@ -22,7 +22,7 @@ const Home = () => {
       : services;
 
   const renderItem = ({ item }) => {
-    return <Service service={item} key={item.id} />;
+    return <Service service={item} key={item.id.toString()} />;
   };
 
   return (
