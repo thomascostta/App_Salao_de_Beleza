@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { FlatList, View } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
+import { useDispatch, useSelector } from "react-redux";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import { Touchable, Text, Title, Box, Button } from "../../styles";
 import { dataTime } from "../../data/dataTime";
 import util from "../../util";
 import theme from "../../styles/theme.json";
-import Icon from "react-native-vector-icons/MaterialIcons";
-import { useDispatch } from "react-redux";
 import { dateScheduling } from "../../store/modules/salao/actions";
 
 const DateTime = () => {
   const dispatch = useDispatch();
-
-  const [selectDate, setSelectDate] = useState();
+  const dateOfStateRedux = useSelector((state) => state.salao.agendamento.date);
   const [selectTime, setSelectTime] = useState();
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedMonth, setSelectedMonth] = useState(0);
@@ -19,6 +18,9 @@ const DateTime = () => {
   const [selectedHour, setSelectedHour] = useState(null);
   const [listDays, setListDays] = useState([]);
   const [listHours, setListHours] = useState([]);
+
+  let dateSelectedOfStateRedux = new Date(dateOfStateRedux);
+  let daySelectedOfStateRedux = dateSelectedOfStateRedux.getUTCDate();
 
   useEffect(() => {
     const today = new Date();
@@ -69,7 +71,6 @@ const DateTime = () => {
       });
     }
     setListDays(newListDays);
-    setSelectDate(1);
     setListHours([]);
     setSelectedHour(0);
   }, [selectedMonth, selectedYear]);
@@ -86,7 +87,6 @@ const DateTime = () => {
         dayOfWeek: item.weekday,
       })
     );
-    setSelectDate(item.numberDays);
   };
 
   const selectButtomTime = (item) => {
@@ -145,12 +145,16 @@ const DateTime = () => {
             justify="center"
             align="center"
             border={`1px solid ${
-              item.numberDays === selectDate
+              dateOfStateRedux === null
+                ? theme.colors.light
+                : item.numberDays === daySelectedOfStateRedux
                 ? theme.colors.primary
                 : util.toAlpha(theme.colors.muted, 20)
             }`}
             background={
-              item.numberDays === selectDate
+              dateOfStateRedux === null
+                ? null
+                : item.numberDays === daySelectedOfStateRedux
                 ? theme.colors.primary
                 : theme.colors.light
             }
@@ -165,21 +169,39 @@ const DateTime = () => {
               <Text
                 bold
                 small
-                color={item.numberDays === selectDate ? "light" : undefined}
+                color={
+                  dateOfStateRedux === null
+                    ? null
+                    : item.numberDays === daySelectedOfStateRedux
+                    ? "light"
+                    : undefined
+                }
               >
                 {item.weekday}
               </Text>
               <Title
                 bold
                 small
-                color={item.numberDays === selectDate ? "light" : undefined}
+                color={
+                  dateOfStateRedux === null
+                    ? null
+                    : item.numberDays === daySelectedOfStateRedux
+                    ? "light"
+                    : undefined
+                }
               >
                 {item.numberDays}
               </Title>
               <Text
                 bold
                 small
-                color={item.numberDays === selectDate ? "light" : undefined}
+                color={
+                  dateOfStateRedux === null
+                    ? null
+                    : item.numberDays === daySelectedOfStateRedux
+                    ? "light"
+                    : undefined
+                }
               >
                 {item.monthName}
               </Text>
