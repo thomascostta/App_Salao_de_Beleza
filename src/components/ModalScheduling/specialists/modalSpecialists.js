@@ -12,9 +12,17 @@ import {
 
 const ModalSpecialists = () => {
   const dispatch = useDispatch();
-  const { form } = useSelector((state) => state.salao);
+  const { form, agendamento } = useSelector((state) => state.salao);
   const isVisibleState = form.modalEspecialista;
   const [borderColor, setBorderColor] = useState();
+
+  const dayOfWeek = agendamento.dayOfWeek;
+  let date = agendamento.date;
+  date = new Date(date);
+  let day = date.getUTCDate();
+  let month = date.getMonth() + 1;
+  day = day < 10 ? "0" + day : day;
+  month = month < 10 ? "0" + month : month;
 
   const toggleModal = () => {
     dispatch(updateModalSpecialist(false));
@@ -69,7 +77,9 @@ const ModalSpecialists = () => {
                   <Icon name="close" color={theme.colors.dark} size={30} />
                 </Touchable>
               </View>
-              <Text small>Disponíveis em 20/04/21 (Sex) às 11:30</Text>
+              <Text small>
+                Disponíveis em {day}/{month} ({dayOfWeek})
+              </Text>
               <Box justify="space-around" wrap="wrap" spacing="10px 0 0 0">
                 {dataSpecialist.results.map((item) => {
                   return (
