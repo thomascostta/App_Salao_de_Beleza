@@ -9,7 +9,6 @@ const INITIAL_STATE = {
   colaboradores: [],
   payment: [],
   agendamento: {
-    // clienteId: consts.clienteId,
     servicoId: null,
     colaboradorId: null,
     date: null,
@@ -82,6 +81,7 @@ export default function salao(state = INITIAL_STATE, action) {
           ...state.agendamento,
           ...action.payload.date,
           ...action.payload.timeOfDay,
+          ...action.payload.dayOfWeek,
         },
       };
     }
@@ -90,7 +90,10 @@ export default function salao(state = INITIAL_STATE, action) {
       return {
         ...state,
         colaboradores: { ...state.colaboradores, ...action.payload },
-        agendamento: { ...state.agendamento, colaboradorId: action.payload.login.uuid },
+        agendamento: {
+          ...state.agendamento,
+          colaboradorId: action.payload.login.uuid,
+        },
       };
     }
 
@@ -114,7 +117,6 @@ export default function salao(state = INITIAL_STATE, action) {
         form: { ...state.form, modalPayment: action.payload },
       };
     }
-
 
     default:
       return state;
