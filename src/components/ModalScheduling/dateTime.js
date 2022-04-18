@@ -80,7 +80,12 @@ const DateTime = () => {
       item.monthNumber,
       item.numberDays
     );
-    dispatch(dateScheduling({date: selectionHaircutSchedule}));
+    dispatch(
+      dateScheduling({
+        date: selectionHaircutSchedule,
+        dayOfWeek: item.weekday,
+      })
+    );
     setSelectDate(item.numberDays);
   };
 
@@ -187,7 +192,7 @@ const DateTime = () => {
       </Text>
       <FlatList
         data={dataTime}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
