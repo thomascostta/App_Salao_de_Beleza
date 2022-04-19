@@ -18,7 +18,10 @@ Com objetivo de estudos, este projeto terá a implementação do React Native CL
 
 
 
-https://user-images.githubusercontent.com/82541529/163808765-4aa60a60-7230-4d53-8472-00ca285e2514.mp4
+
+
+https://user-images.githubusercontent.com/82541529/164005606-c025d500-fcc3-4b65-ac86-e78ef7bf083d.mp4
+
 
 
 
