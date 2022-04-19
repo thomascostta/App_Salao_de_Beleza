@@ -6,8 +6,7 @@ import { data } from "../../../data/dataSpecialist.json";
 import theme from "../../../styles/theme.json";
 import { updateModalSpecialist } from "../../../store/modules/salao/actions";
 
-const SpecialistsPicker = ({ colaboradores }) => {
-
+const SpecialistsPicker = ({ colaboradores, agendamento }) => {
   const dispatch = useDispatch();
 
   const changeCollaborators = () => {
@@ -32,7 +31,7 @@ const SpecialistsPicker = ({ colaboradores }) => {
             }}
           />
           <Text small bold>
-            {colaboradores?.name?.first ? colaboradores?.name?.first : 'Vazio'}
+            {colaboradores?.name?.first ? colaboradores?.name?.first : "Vazio"}
           </Text>
         </Box>
         <Box>
@@ -44,6 +43,11 @@ const SpecialistsPicker = ({ colaboradores }) => {
             mode="contained"
             block
             onPress={changeCollaborators}
+            disabled={
+              agendamento.timeOfDay === null || agendamento.date === null
+                ? true
+                : false
+            }
           >
             Escolher cabeleleiro
           </Button>
