@@ -45,7 +45,10 @@ const ModalScheduling = () => {
           <ModalHeader />
           <Resume service={service} />
           <DateTime />
-          <SpecialistsPicker colaboradores={colaboradores} />
+          <SpecialistsPicker
+            colaboradores={colaboradores}
+            agendamento={agendamento}
+          />
           <PaymentPicker />
           <Box hasPadding>
             <Button
