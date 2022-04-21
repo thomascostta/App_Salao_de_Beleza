@@ -13,6 +13,7 @@ const INITIAL_STATE = {
     colaboradorId: null,
     date: null,
     timeOfDay: null,
+    confirmation: false,
   },
   form: {
     inputFiltro: "",
@@ -116,6 +117,18 @@ export default function salao(state = INITIAL_STATE, action) {
       return {
         ...state,
         form: { ...state.form, modalPayment: action.payload },
+      };
+    }
+
+    case types.SAVE_SCHEDULING: {
+      return {
+        ...state,
+        agendamento: { ...state.agendamento, confirmation: action.payload },
+        form: {
+          ...state.form,
+          agendamentoLoading: action.payload,
+          modalAgendamento: false,
+        },
       };
     }
 
