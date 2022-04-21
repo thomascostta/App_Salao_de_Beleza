@@ -8,8 +8,14 @@ export function updateForm(payload) {
   return { type: types.UPDATE_FORM, payload };
 }
 
-export function updateScheduling(payload) {
-  return { type: types.UPDATE_SCHEDULING, payload };
+export function updateScheduling({ servicoId, modalAgendamento }) {
+  return {
+    type: types.UPDATE_SCHEDULING,
+    payload: {
+      modalAgendamento,
+      servicoId,
+    },
+  };
 }
 
 export function updateSchedule(payload) {
