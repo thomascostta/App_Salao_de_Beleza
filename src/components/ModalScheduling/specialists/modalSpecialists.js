@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Image, Dimensions, Modal } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Box, Text, Touchable } from "../../../styles";
 import dataSpecialist from "../../../data/dataSpecialist.json";
 import theme from "../../../styles/theme.json";
-import { useDispatch, useSelector } from "react-redux";
 import {
   updateModalSpecialist,
   updateCollaboratos,
