@@ -1,39 +1,33 @@
 # App_Barber_Shop
 
 ## 🚀 O Projeto 
-Com objetivo de estudos, este projeto terá a implementação do React Native CLI utilizando:
-- Componente Funcional com Hooks
+O projeto App Barber Shop utiliza React Native CLI com:
+- React Hooks
 - Redux
+- Redux Persist
 - styled-component
 - async-storage
 - react-native-paper
 - react-hook-form + Yup
-- Text- InputMask
+- Text-Input-Mask
 - E outros.
 
 
-## 💻 Status
+## 💻 GitFlix
 
 
 
 
 
-
-
-https://user-images.githubusercontent.com/82541529/164005606-c025d500-fcc3-4b65-ac86-e78ef7bf083d.mp4
+https://user-images.githubusercontent.com/82541529/164552529-5dd52674-3b41-4295-86e1-87c7b74d503c.mp4
 
 
 
 
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
-- [x] Implementação do Redux 
-- [ ] Criação de layouts 🚧 
-- [ ] Estrutura de dados
-- [ ] Teste
 
 ## Funcionalidades
-O App será para agendamento por horário no salão de beleza, podendo escolher o dia, horário e profissional e o serviço desejado até a opção (simulação) de pagamento e agendamento.
+App de uma Barbearia para agendamento por serviço, dia, horário, profissional e simulação de pagamento.
 
 
 ## 🛠 Instalando o Projeto
