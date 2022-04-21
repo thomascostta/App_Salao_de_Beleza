@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import { Modal } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import React, { useRef } from "react";
+import { Modal, ScrollView } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 import ModalHeader from "./header";
 import Resume from "./resume";
 import DateTime from "./dateTime";
@@ -9,9 +9,10 @@ import ModalSpecialists from "./specialists/modalSpecialists";
 import PaymentPicker from "../ModalScheduling/payment";
 import ModalPayment from "../ModalScheduling/payment/ModalPayment";
 import { Button, Box } from "../../styles";
-import { useSelector } from "react-redux";
+import { saveScheduling } from "../../store/modules/salao/actions";
 
 const ModalScheduling = () => {
+  const dispatch = useDispatch();
   const { form, agendamento, services, colaboradores, payment } = useSelector(
     (state) => state.salao
   );
@@ -57,6 +58,7 @@ const ModalScheduling = () => {
               mode="contained"
               block
               uppercase={false}
+              onPress={() => dispatch(saveScheduling(true))}
             >
               Confirmar meu agendamento
             </Button>
