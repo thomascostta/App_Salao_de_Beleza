@@ -52,3 +52,7 @@ export function updatePaymentMethod(payload) {
 export function updateModalPaymentMethod(payload) {
   return { type: types.MODAL_PAYMENT_METHOD, payload };
 }
+
+export function saveScheduling(payload) {
+  return { type: types.SAVE_SCHEDULING, payload };
+}
