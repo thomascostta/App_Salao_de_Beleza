@@ -55,14 +55,15 @@ export default function salao(state = INITIAL_STATE, action) {
         ...state,
         form: {
           ...state.form,
-          modalAgendamento: true,
+          modalAgendamento: action.payload.modalAgendamento,
         },
         agendamento: {
           ...state.agendamento,
-          servicoId: action.payload.id,
+          servicoId: action.payload.servicoId,
         },
       };
     }
+
     // *** with the lib 'immer'
     // case types.UPDATE_SCHEDULING: {
     //   return produce(state, (draft) => {
