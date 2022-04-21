@@ -5,7 +5,6 @@ import rootReducer from "./modules/rootReducer";
 import rootSaga from "./modules/rootSaga";
 import Reactotron from "../config/reactotron";
 import { persistStore, persistReducer } from "redux-persist";
-// import storage from 'redux-persist/lib/storage';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const persistConfig = {
@@ -14,8 +13,6 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-const middlewares = [];
 
 const sagaMiddleware = createSagaMiddleware();
 
