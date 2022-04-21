@@ -12,12 +12,7 @@ const Service = ({ service }) => {
   };
 
   return (
-    <Touchable
-      height="100px"
-      hasPadding
-      align="center"
-      background="light"
-    >
+    <Touchable height="100px" hasPadding align="center" background="light">
       <Image
         source={{ uri: service.image }}
         style={{
@@ -41,7 +36,14 @@ const Service = ({ service }) => {
           icon="clock-check-outline"
           background="success"
           mode="contained"
-          onPress={() => dispatch(updateScheduling(service))}
+          onPress={() =>
+            dispatch(
+              updateScheduling({
+                servicoId: service.id,
+                modalAgendamento: true,
+              })
+            )
+          }
         >
           AGENDAR
         </Button>
