@@ -7,6 +7,7 @@ export default (reducers) => {
       key: "salao_de_beleza_barber_rock_bar",
       storage: AsyncStorage,
       whitelist: [],
+      blacklist: [],
     },
     reducers
   );
