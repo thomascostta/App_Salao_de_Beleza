@@ -47,13 +47,12 @@ $ git clone https://github.com/thomascostta/App_Salao_de_Beleza.git
 ```bash
 $ cd App_Salao_de_Beleza
 ```
-## Start your Metro server:
-`npx react-native start`
-
 ## Install the dependencies
 ```bash
 npm i [or] yarn
 ```
+## Start your Metro server:
+`npx react-native start`
   
 ## Run :iphone:
 Run the application (iOS)
