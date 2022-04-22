@@ -1,7 +1,23 @@
-# App_Barber_Shop
+<h1 align="center">
+  App_Barber_Shop 📑:
+</h1>
 
-## 🚀 O Projeto 
-O projeto App Barber Shop utiliza React Native CLI com:
+<div align="center"></div>
+  
+<p align="center">
+  <a href="#overview-book">Overview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#video-tv">Video</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#how-to-use-toolbox">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#how-to-contribute-gear">How to contribute</a>
+</p>
+
+---------------------------
+
+# Overview :book:
+ <p>
+  App de uma Barbearia para agendamento por serviço, dia, horário, profissional e simulação de pagamento.
+
+  O projeto App Barber Shop utiliza React Native CLI com:
 - React Hooks
 - Redux
 - Redux Persist
@@ -11,40 +27,52 @@ O projeto App Barber Shop utiliza React Native CLI com:
 - react-hook-form + Yup
 - Text-Input-Mask
 - E outros.
+ </p>
 
+---------------------------
 
-## 💻 GitFlix
-
-
-
-
+## Video :tv:
 
 https://user-images.githubusercontent.com/82541529/164552529-5dd52674-3b41-4295-86e1-87c7b74d503c.mp4
 
+---------------------------
 
+# How to use :toolbox:
 
-
-
-
-## Funcionalidades
-App de uma Barbearia para agendamento por serviço, dia, horário, profissional e simulação de pagamento.
-
-
-## 🛠 Instalando o Projeto
-Para instalar o App_Barber_Shop, siga estas etapas:
-
-#### Metro
-After cloning the repo, install the dependencies locally with `yarn` or `npm i`
-
-Start your Metro server:
+## Clone this repository
+```bash
+$ git clone https://github.com/thomascostta/App_Salao_de_Beleza.git
+```
+## Go into the repository
+```bash
+$ cd App_Salao_de_Beleza
+```
+## Start your Metro server:
 `npx react-native start`
 
-#### Android
-`npx react-native run-android`
+## Install the dependencies
+```bash
+npm i [or] yarn
+```
+  
+## Run :iphone:
+Run the application (iOS)
+```bash
+$ react-native run-ios --simulator="iPhone XS Max"
+```
+Run the application (Android)
+```bash
+$ react-native run-android
+```
+---
 
-#### iOS
-`pod install --repo-update --project-directory=ios`
-`npx react-native run-ios`
+# How to contribute :gear:
+- Fork this repository;
+- Create a branch with your feature: `git checkout -b my-feature`;
+- Commit your changes: `git commit -m 'feat: My new feature'`;
+- Push to your branch: `git push origin my-feature`.
+
+---
 
 
 Edição realizada com ❤️ por Thomas Costa 👋🏽 Entre em contato!
