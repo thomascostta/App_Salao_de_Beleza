@@ -1,5 +1,5 @@
 <h1 align="center">
-  App_Barber_Shop 📑:
+  App_Barber_Shop :barber:
 </h1>
 
 <div align="center"></div>
