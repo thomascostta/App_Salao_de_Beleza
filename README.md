@@ -43,26 +43,22 @@ https://user-images.githubusercontent.com/82541529/164552529-5dd52674-3b41-4295-
 ```bash
 $ git clone https://github.com/thomascostta/App_Salao_de_Beleza.git
 ```
-## Go into the repository
-```bash
-$ cd App_Salao_de_Beleza
-```
+
 ## Install the dependencies
-```bash
-npm i [or] yarn
-```
+`npm i` or `yarn`
+
 ## Start your Metro server:
 `npx react-native start`
-  
+
 ## Run :iphone:
-Run the application (iOS)
-```bash
-$ react-native run-ios --simulator="iPhone XS Max"
-```
 Run the application (Android)
-```bash
-$ react-native run-android
-```
+
+`react-native run-android`
+
+Run the application (iOS)
+
+`react-native run-ios --simulator="iPhone model"`
+
 ---
 
 # How to contribute :gear:
